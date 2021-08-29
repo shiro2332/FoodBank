@@ -4,19 +4,16 @@ $user="root";
 $password="";
 $db="foodbank";
 
-$conn = mysqli_connect($host, $user, $password);
+$conn = mysqli_connect($host, $user, $password, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 
-mysqli_select_db($conn, $db);
-
-if(isset($_POST['loginUsername'])){
+if(isset($_POST['submitLogin'])){
     $uname = $_POST['loginUsername'];
-    $upass = $_POST['loginPassword'];
+    $upass = md5($_POST['loginPassword']);
 
-    $sql="select * from useracc where UserID = '".$uname."' AND Password = '".$upass."' ";
+    $sql="SELECT * FROM useracc WHERE UserID = '".$uname."' AND Password = '".$upass."' ";
 
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result)==1){
@@ -27,6 +24,15 @@ if(isset($_POST['loginUsername'])){
         exit();
     }
 }
+
+if(isset($_POST['submitRegister'])){
+    $uname = $_POST['registerUsername'];
+    $upass = md5($_POST['registerPassword']);
+    $email = $_POST['registerEmail'];
+    $sql = "INSERT INTO useracc (UserID, Password, Email) VALUES ('$uname', '$upass', '$email')";
+    $result = mysqli_query($conn, $sql);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -55,17 +61,17 @@ if(isset($_POST['loginUsername'])){
 
                 <form method="POST" action="#" id="login" class="input-group">
                     <input type="text" name="loginUsername" class="input-field" placeholder="User ID" required>
-                    <input type="text" name="loginPassword" class="input-field" placeholder="Password" required>
+                    <input type="password" name="loginPassword" class="input-field" placeholder="Password" required>
                     <input type="checkbox" name="rememberMeBtn" class="check-box"><span>Remember me</span>
-                    <button type = "submit" class="submit-button">Log In</button>
+                    <button type = "submit" name = "submitLogin" class="submit-button">Log In</button>
                 </form>
 
                 <form method="POST" action="#" id="register" class="input-group">
                     <input type="text" name="registerUsername" class="input-field" placeholder="User ID" required>
                     <input type="email" name="registerEmail" class="input-field" placeholder="Email ID" required>
                     <input type="password" name="registerPassword" class="input-field" placeholder="Password" required>
-                    <input type="checkbox" name="tncCheck" class="check-box"><span>I agree to the terms and condition.</span>
-                    <button type = "submit" class="submit-button">Register</button>
+                    <input type="checkbox" name="tncCheck" class="check-box" required><span>I agree to the terms and condition.</span>
+                    <button type = "submit" name = "submitRegister" class="submit-button">Register</button>
                 </form>
             </div>
         </div> 
