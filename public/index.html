@@ -9,8 +9,12 @@
         <script type="module">
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+            import { auth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+            import { firestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+            import { messaging } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js";
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
+
           
             // Your web app's Firebase configuration
             const firebaseConfig = {
@@ -32,7 +36,6 @@
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Cact</a></li>
                 <li><a href="login.php">Login</a></li>
             </ul>
         </header>

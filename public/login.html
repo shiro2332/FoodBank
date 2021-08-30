@@ -1,40 +1,3 @@
-<?php
-$host="localhost";
-$user="root";
-$password="";
-$db="foodbank";
-
-$conn = mysqli_connect($host, $user, $password, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if(isset($_POST['submitLogin'])){
-    $uname = $_POST['loginUsername'];
-    $upass = md5($_POST['loginPassword']);
-
-    $sql="SELECT * FROM useracc WHERE UserID = '$uname' AND Password = '$upass'; ";
-
-    $result = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($result)==1){
-        echo "Successful Logged In";
-        exit();
-    } else {
-        echo "Incorrect ID or Password";
-        exit();
-    }
-}
-
-if(isset($_POST['submitRegister'])){
-    $uname = $_POST['registerUsername'];
-    $upass = md5($_POST['registerPassword']);
-    $email = $_POST['registerEmail'];
-    $sql = "INSERT INTO useracc (UserID, Password, Email) VALUES ('$uname', '$upass', '$email');";
-    $result = mysqli_query($conn, $sql);
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,6 +5,15 @@ if(isset($_POST['submitRegister'])){
         <!<link href="style/nightlyMode.min.css" rel="stylesheet">
         <link href="style/loginStyle.css" rel="stylesheet">
         <script src="script/OpenLayers.js"></script>
+        <script src="script/authentication.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#test2").click(function(){
+                    registration($("#text1").val(), $("#pass1").val());
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -60,18 +32,18 @@ if(isset($_POST['submitRegister'])){
                 </div>
 
                 <form method="POST" action="#" id="login" class="input-group">
-                    <input type="text" name="loginUsername" class="input-field" placeholder="User ID" required>
-                    <input type="password" name="loginPassword" class="input-field" placeholder="Password" required>
+                    <input type="text" name="loginUsername" class="input-field" placeholder="User ID" required id="text">
+                    <input type="password" name="loginPassword" class="input-field" placeholder="Password" required id="pass">
                     <input type="checkbox" name="rememberMeBtn" class="check-box"><span>Remember me</span>
-                    <button type = "submit" name = "submitLogin" class="submit-button">Log In</button>
+                    <button type = "submit" name = "submitLogin" class="submit-button" id="test">Log In</button>
                 </form>
 
                 <form method="POST" action="#" id="register" class="input-group">
-                    <input type="text" name="registerUsername" class="input-field" placeholder="User ID" required>
+                    <input type="text" name="registerUsername" class="input-field" placeholder="User ID" required id="text1">
                     <input type="email" name="registerEmail" class="input-field" placeholder="Email ID" required>
-                    <input type="password" name="registerPassword" class="input-field" placeholder="Password" required>
+                    <input type="password" name="registerPassword" class="input-field" placeholder="Password" required id="pass1">
                     <input type="checkbox" name="tncCheck" class="check-box" required><span>I agree to the terms and condition.</span>
-                    <button type = "submit" name = "submitRegister" class="submit-button">Register</button>
+                    <button type = "submit" name = "submitRegister" class="submit-button" id="test2">Register</button>
                 </form>
             </div>
         </div> 
