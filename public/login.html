@@ -2,18 +2,12 @@
 <html>
     <head>
         <title>FoodBank</title>
+        
         <!<link href="style/nightlyMode.min.css" rel="stylesheet">
         <link href="style/loginStyle.css" rel="stylesheet">
-        <script src="script/OpenLayers.js"></script>
-        <script src="script/authentication.js" type="module"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                $("#test2").click(function(){
-                    registration($("#text1").val(), $("#pass1").val());
-                });
-            });
-        </script>
+        <!<script src="script/OpenLayers.js"></script>
+        <script src="script/authentication.js"></script>
+        <!<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -32,20 +26,24 @@
                 </div>
 
                 <form method="POST" action="#" id="login" class="input-group">
-                    <input type="text" name="loginUsername" class="input-field" placeholder="User ID" required id="text">
+                    <input type="text" name="loginUsername" class="input-field" placeholder="Email ID" required id="text">
                     <input type="password" name="loginPassword" class="input-field" placeholder="Password" required id="pass">
                     <input type="checkbox" name="rememberMeBtn" class="check-box"><span>Remember me</span>
-                    <button type = "submit" name = "submitLogin" class="submit-button" id="test">Log In</button>
+                    <button type = "submit" name = "submitLogin" class="submit-button" onclick="loginUser()">Log In</button>
                 </form>
 
                 <form method="POST" action="#" id="register" class="input-group">
-                    <input type="text" name="registerUsername" class="input-field" placeholder="User ID" required id="text1">
                     <input type="email" name="registerEmail" class="input-field" placeholder="Email ID" required>
                     <input type="password" name="registerPassword" class="input-field" placeholder="Password" required id="pass1">
                     <input type="checkbox" name="tncCheck" class="check-box" required><span>I agree to the terms and condition.</span>
-                    <button type = "submit" name = "submitRegister" class="submit-button" id="test2">Register</button>
+                    <button type = "submit" name = "submitRegister" class="submit-button" onclick="registerUser()">Register</button>
                 </form>
             </div>
+            <div id="user_div">
+                <h1>Welcome</h1>
+                <button>logout</button>
+            </div>
+
         </div> 
 
         <script>

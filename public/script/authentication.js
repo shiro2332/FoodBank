@@ -1,27 +1,54 @@
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-import {$,jQuery} from 'jquery';
-window.$ = $;
-window.jQuery = jQuery;
+// Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyB6k1Q91ZUeRsKneY7El6adwQ1CONAt650",
+    authDomain: "freefoodforyou-6dc88.firebaseapp.com",
+    projectId: "freefoodforyou-6dc88",
+    storageBucket: "freefoodforyou-6dc88.appspot.com",
+    messagingSenderId: "1097439533486",
+    appId: "1:1097439533486:web:5dd7c3ce83cc6cf2ff503f",
+    measurementId: "G-K2439YYX8Q"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-function registration(email, password){
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-        // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        // ..
-    });
-}
+  const auth =  firebase.auth();
 
-$(document).ready(function(){
-    $("#test2").click(function(){
-        registration($("#text1").val(), $("#pass1").val());
-    });
-});
+  //signup function
+  function signUp(){
+    var email = document.getElementById("email");
+    var password = document.getElementById("password");
+
+    const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
+    //
+    promise.catch(e=>alert(e.message));
+    alert("SignUp Successfully");
+  }
+
+  //signIN function
+  function  signIn(){
+    var email = document.getElementById("email");
+    var password  = document.getElementById("password");
+    const promise = auth.signInWithEmailAndPassword(email.value,password.value);
+    promise.catch(e=>alert(e.message));
+    
+  }
+
+
+  //signOut
+
+  function signOut(){
+    auth.signOut();
+    alert("SignOut Successfully from System");
+  }
+
+  //active user to homepage
+  firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+      var email = user.email;
+      alert("Active user "+email);
+
+    }else{
+      alert("No Active user Found")
+    }
+  })
