@@ -13,7 +13,7 @@ if(isset($_POST['submitLogin'])){
     $uname = $_POST['loginUsername'];
     $upass = md5($_POST['loginPassword']);
 
-    $sql="SELECT * FROM useracc WHERE UserID = '".$uname."' AND Password = '".$upass."' ";
+    $sql="SELECT * FROM useracc WHERE UserID = '$uname' AND Password = '$upass'; ";
 
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result)==1){
@@ -29,7 +29,7 @@ if(isset($_POST['submitRegister'])){
     $uname = $_POST['registerUsername'];
     $upass = md5($_POST['registerPassword']);
     $email = $_POST['registerEmail'];
-    $sql = "INSERT INTO useracc (UserID, Password, Email) VALUES ('$uname', '$upass', '$email')";
+    $sql = "INSERT INTO useracc (UserID, Password, Email) VALUES ('$uname', '$upass', '$email');";
     $result = mysqli_query($conn, $sql);
 }
 
