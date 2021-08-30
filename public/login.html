@@ -8,9 +8,23 @@
         <script src="script/authentication.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
+            import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
             $(document).ready(function(){
                 $("#test2").click(function(){
-                    registration($("#text1").val(), $("#pass1").val());
+                    const auth = getAuth();
+                    createUserWithEmailAndPassword(auth, $("#text1").val(), $("#pass1").val())
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        console.log(user);
+                        // ...
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorMessage);
+                        // ..
+                    });
                 });
             });
         </script>
