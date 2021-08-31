@@ -16,8 +16,8 @@
 
   //signup function
   function signUp(){
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
+    var email = document.getElementById("registerEmail");
+    var password = document.getElementById("registerPassword");
 
     const promise = auth.createUserWithEmailAndPassword(email.value,password.value);
     //
@@ -27,8 +27,8 @@
 
   //signIN function
   function  signIn(){
-    var email = document.getElementById("email");
-    var password  = document.getElementById("password");
+    var email = document.getElementById("loginEmail");
+    var password  = document.getElementById("loginPassword");
     const promise = auth.signInWithEmailAndPassword(email.value,password.value);
     promise.catch(e=>alert(e.message));
     
@@ -43,7 +43,7 @@
   }
 
   //active user to homepage
-  firebase.auth().onAuthStateChanged((user)=>{
+  /*firebase.auth().onAuthStateChanged((user)=>{
     if(user){
       var email = user.email;
       alert("Active user "+email);
@@ -51,4 +51,4 @@
     }else{
       alert("No Active user Found")
     }
-  })
+  })*/
