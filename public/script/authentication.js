@@ -37,7 +37,8 @@
 
   //signOut
   function signOut(){
-    auth.signOut();
+    const promise = auth.signOut();
+    promise.catch(e=>alert(e.message));
     alert("SignOut Successfully from System");
     window.location.href = "index.html";
   }
