@@ -55,11 +55,11 @@ function signOut() {
 }
 
 function getCurrentUser() {
-  const user = auth.currentUser;
-  // if (user) {
-  //   console.log(user);
-  // } else {
-  //   console.log('No User');
-  // }
-  console.log(user);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user);
+    } else {
+      console.log('No User');
+    }
+  });
 }
