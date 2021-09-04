@@ -31,6 +31,7 @@
     var password  = document.getElementById("loginPassword");
     const promise = auth.signInWithEmailAndPassword(email.value,password.value);
     promise.catch(e=>alert(e.message));
+    window.location.href = "user.html";
     
   }
 
@@ -43,6 +44,7 @@
     window.location.href = "index.html";
   }
 
+  /*
   //active user to homepage
   firebase.auth().onAuthStateChanged((user)=>{
     if(user){
@@ -54,3 +56,4 @@
       //alert("No Active user Found")
     }
   })
+  */
