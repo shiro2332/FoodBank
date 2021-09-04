@@ -55,7 +55,7 @@ function signOut() {
 }
 
 function getCurrentUser() {
-  const user = firebase.auth().currentUser;
+  const user = auth.currentUser;
   // if (user) {
   //   console.log(user);
   // } else {
