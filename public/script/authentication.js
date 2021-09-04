@@ -31,7 +31,7 @@
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      window.location.href = "user.html";
+      //window.location.href = "user.html";
       // ...
     })
     .catch((error) => {
