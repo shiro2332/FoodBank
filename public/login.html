@@ -27,14 +27,14 @@
                     <img src="images/login/tw.png">
                 </div>
 
-                <form method="POST" action="#" id="login" class="input-group">
+                <form onsubmit="return false" id="login" class="input-group">
                     <input type="text" name="loginUsername" class="input-field" placeholder="Email ID" required id="loginEmail">
                     <input type="password" name="loginPassword" class="input-field" placeholder="Password" required id="loginPassword">
                     <input type="checkbox" name="rememberMeBtn" class="check-box"><span>Remember me</span>
                     <button type = "submit" name = "submitLogin" class="submit-button" id="loginBtn" onclick="signIn()">Log In</button>
                 </form>
 
-                <form method="POST" action="#" id="register" class="input-group">
+                <form onsubmit="return false" id="register" class="input-group">
                     <input type="email" name="registerEmail" class="input-field" placeholder="Email ID" required id="registerEmail">
                     <input type="password" name="registerPassword" class="input-field" placeholder="Password" required id="registerPassword">
                     <input type="checkbox" name="tncCheck" class="check-box" required><span>I agree to the terms and condition.</span>
