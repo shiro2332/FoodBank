@@ -39,6 +39,7 @@
   function signOut(){
     auth.signOut();
     alert("SignOut Successfully from System");
+    window.location.href = "index.html";
   }
 
   //active user to homepage
