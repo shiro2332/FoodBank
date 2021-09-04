@@ -9,7 +9,7 @@ var firebaseConfig = {
   };
 
 const app = firebase.initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = firebase.firestore(app);
 
 function addMessage() {
     db.collection("ContactMessage").add({
