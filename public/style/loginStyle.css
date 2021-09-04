@@ -17,10 +17,26 @@
     width: 380px;
     height: 480px;
     position: relative;
-    margin: 10% auto;
+    margin: 10px auto;
     background: #fff;
     padding: 5px;
     overflow: hidden;
+}
+
+.logo{
+    width: 380px;
+    height: 200px;
+    position: relative;
+    margin: 5% auto  10px;
+    padding: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.logo img{
+    width: 300px;
+    height: 200px;
+    
 }
 
 .button-box{
