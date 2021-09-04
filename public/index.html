@@ -1,81 +1,164 @@
 <!DOCTYPE html>
 <html>
-    <!--chrome://flags/#smooth-scrolling              Enable smmoth scrolling in chrome, create popup for this-->
     <head>
-        <title>Free Food For You</title>
-        <link rel="stylesheet" type="text/css" href="style/indexStyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FreeFood4U | Here2Help</title>
+        <link rel="stylesheet" href="style/indexStyle.css">
+        <script src="https://kit.fontawesome.com/166358a2b4.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-            import { auth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
-            import { firestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-            import { messaging } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-
-          
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-              apiKey: "AIzaSyDepLUp7cif6PnPVbj0E4UjRQxeDyZ6L5A",
-              authDomain: "foodbank-323903.firebaseapp.com",
-              projectId: "foodbank-323903",
-              storageBucket: "foodbank-323903.appspot.com",
-              messagingSenderId: "45754299896",
-              appId: "1:45754299896:web:eaed75b3d751d3f886d20d"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-        </script>
-
         <header>
-            <a href="#" class="logo">FreeFoodForYou</a>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <a href="#" class="logo"> FF4U </a>
+            <div class="toggle" onclick="toggleMenu();"></div>
+                <ul class="menu">
+                    <li> <a href="#home" onclick="toggleMenu();">Home</a></li>
+                    <li> <a href="#about" onclick="toggleMenu();">About</a></li>
+                    <li> <a href="#services" onclick="toggleMenu();">Services</a></li>
+                    <li> <a href="#testimonial" onclick="toggleMenu();">Review</a></li>
+                    <li> <a href="#contact" onclick="toggleMenu();">Contact</a></li>
+                </ul>
         </header>
-        <section>
-            <img src="images/placeholder/stars.png" id="stars">
-            <img src="images/placeholder/moon.png" id="moon">
-            <img src="images/placeholder/mountains_behind.png" id="mountains-behind">
-            <h2 id="text">Here2Help</h2>
-            <a href="#first-section" id="button">Who are us?</a>
-            <img src="images/placeholder/mountains_front.png" id="mountains-front">
+
+        <section class = "banner" id="home">
+            <div class="text-box">
+                <h2>Hello, we are <br><span>FreeFood4U.</h2>
+                <h3>and we are here to help.</h3>
+                <a href="#about" class = "banner-button">About Us</a>
+            </div>
         </section>
-        <div class="first-section" id="first-section">
-            <h2>Free Food For You</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
-                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
-                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
-                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
-            </p>
+
+        <section class="about" id="about">
+            <div class="heading">
+                <h2> About Us</h2>
+            </div>
+            <div class="content">
+                <div class="content-box w50">
+                    <h3>We are FreeFoodForYou. <br> Here to help you.</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                        <br><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                    </p>
+                </div>
+                <div class="w50">
+                    <img src="images/indexImage1-passFood.jpg" class="img">
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="heading white">
+                <h2>Our Services</h2>
+                <p>Providing help to those in need.</p>
+            </div>
+            <div class="content">
+                <div class="services-box">
+                    <img src="images/gps-icon.png">
+                    <h2>Location</h2>
+                    <p>Find the nearest foodbank with ease!</p>
+                </div>
+                <div class="services-box">
+                    <img src="images/foodbox-icon.png">
+                    <h2>Foodbank information</h2>
+                    <p>Know what your foodbank is providing!</p>
+                </div>
+                <div class="services-box">
+                    <img src="images/notification-icon.png">
+                    <h2>Notification</h2>
+                    <p>Get an update whenever any foodbank updates!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial" id="testimonial">
+            <div class="heading">
+                <h2>Reviews</h2>
+                <p>Some comments from our users.</p>
+            </div>
+            <div class ="content">
+                <div class="testimonial-box">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                    </p>
+                    <h3>Someone<br><span>Title</span></h3>
+                </div>
+                <div class="testimonial-box">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                    </p>
+                    <h3>Someone<br><span>Title</span></h3>
+                </div>
+                <div class="testimonial-box">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                    </p>
+                    <h3>Someone<br><span>Title</span></h3>
+                </div>
+            </div>
+        </section>
+            
+        <section class="contact" id="contact">
+            <div class="heading white">
+                <h2>Contact Us</h2>
+                <p>Contact us via these platform.</p>
+            </div>
+            <div class="content">
+                <div class="contactInfo">
+                    <h3>Contact Info</h3>
+                    <div class="contactInfo-box">
+                        <div class="box">
+                            <div class="icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Address</h3>
+                                <p>Address, <br>State, <br>Postcode</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Phone</h3>
+                                <p>012-3456789</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="icon">
+                                <i class="fa fa-envelope-o"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Email</h3>
+                                <p>abc@abc.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formbox">
+                    <form>
+                        <h3>Message Us</h3>
+                        <input type="text" name="" placeholder="Full Name">
+                        <input type="email" name="" placeholder="Email">
+                        <textarea placeholder="Your Message"></textarea>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="copyright">
+            <p>Copyright © 2021 FreeFood4U. All Right Reserved.</p>
         </div>
 
         <script>
-            let stars = document.getElementById('stars');
-            let moon = document.getElementById('moon');
-            let mountainsBehind = document.getElementById('mountains-behind');
-            let text = document.getElementById('text');
-            let button = document.getElementById('button');
-            let mountainsFront = document.getElementById('mountains-front');
-            let header = document.querySelector('header');
-
-            window.addEventListener('scroll', function(){
-                let value = window.scrollY;
-                stars.style.left = value * 0.25 + 'px';
-                moon.style.top = value * 1.05 + 'px';
-                mountainsBehind.style.top = value * 0.5 + 'px';
-                mountainsFront.style.top = value * 0 + 'px';
-                text.style.marginRight = value * 4 + 'px';
-                text.style.marginTop = value * 1.5 + 'px';
-                button.style.marginTop = value * 1.5 + 'px';
-                header.style.top = value * 0.5 + 'px';
-            })
+            function toggleMenu(){
+                var menuToggle = document.querySelector('.toggle');
+                var menu = document.querySelector('.menu');
+                menuToggle.classList.toggle('active');
+                menu.classList.toggle('active');
+            }
         </script>
     </body>
 </html>

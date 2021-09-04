@@ -36,7 +36,6 @@
 
 
   //signOut
-
   function signOut(){
     auth.signOut();
     alert("SignOut Successfully from System");

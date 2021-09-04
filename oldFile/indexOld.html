@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <!--chrome://flags/#smooth-scrolling              Enable smmoth scrolling in chrome, create popup for this-->
+    <head>
+        <title>Free Food For You</title>
+        <link rel="stylesheet" type="text/css" href="style/indexStyle.css">
+    </head>
+    <body>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+            import { auth } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+            import { firestore } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+            import { messaging } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyDepLUp7cif6PnPVbj0E4UjRQxeDyZ6L5A",
+              authDomain: "foodbank-323903.firebaseapp.com",
+              projectId: "foodbank-323903",
+              storageBucket: "foodbank-323903.appspot.com",
+              messagingSenderId: "45754299896",
+              appId: "1:45754299896:web:eaed75b3d751d3f886d20d"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+        </script>
+
+        <header>
+            <a href="#" class="logo">FreeFoodForYou</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="images/placeholder/stars.png" id="stars">
+            <img src="images/placeholder/moon.png" id="moon">
+            <img src="images/placeholder/mountains_behind.png" id="mountains-behind">
+            <h2 id="text">Here2Help</h2>
+            <a href="#first-section" id="button">Who are us?</a>
+            <img src="images/placeholder/mountains_front.png" id="mountains-front">
+        </section>
+        <div class="first-section" id="first-section">
+            <h2>Free Food For You</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+                <br><br>ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas dui et aliquet venenatis. Aliquam at aliquam ante. Duis mauris magna, auctor id pulvinar vel, aliquam vel nisl. Donec at enim vitae lorem ornare euismod. Vestibulum aliquam elit vel bibendum hendrerit. Aenean volutpat commodo hendrerit. Sed urna ipsum, fermentum vel enim non, vestibulum vestibulum felis. In hac habitasse platea dictumst. Pellentesque posuere dignissim nisl. In sollicitudin varius consequat. Nulla facilisi. Maecenas bibendum sem et lacinia fermentum. Nulla condimentum urna at velit rutrum ullamcorper. Pellentesque et quam ante.
+            </p>
+        </div>
+
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountainsBehind = document.getElementById('mountains-behind');
+            let text = document.getElementById('text');
+            let button = document.getElementById('button');
+            let mountainsFront = document.getElementById('mountains-front');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function(){
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 1.05 + 'px';
+                mountainsBehind.style.top = value * 0.5 + 'px';
+                mountainsFront.style.top = value * 0 + 'px';
+                text.style.marginRight = value * 4 + 'px';
+                text.style.marginTop = value * 1.5 + 'px';
+                button.style.marginTop = value * 1.5 + 'px';
+                header.style.top = value * 0.5 + 'px';
+            })
+        </script>
+    </body>
+</html>
