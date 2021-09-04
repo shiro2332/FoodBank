@@ -27,12 +27,28 @@
 
   //signIN function
   function  signIn(){
+    auth.signInWithEmailAndPassword(email.value,password.value)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      window.location.href = "user.html";
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+      // ...
+    });
+
+    /*
     var email = document.getElementById("loginEmail");
     var password  = document.getElementById("loginPassword");
     const promise = auth.signInWithEmailAndPassword(email.value,password.value);
     console.log(promise);
     promise.catch(e=>alert(e.message));
     window.location.href = "user.html";
+    */
   }
 
 
@@ -43,6 +59,8 @@
     alert("SignOut Successfully from System");
     window.location.href = "index.html";
   }
+
+  
 
   /*
   //active user to homepage
