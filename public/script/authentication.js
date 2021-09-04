@@ -25,14 +25,31 @@
     alert("SignUp Successfully");
   }
 
-  //signIN function
-  function  signIn(){
-    preventDefault();
+  document.getElementById("loginBtn").addEventListener("submit", (event) => {
+    event.preventDefault();
     auth.signInWithEmailAndPassword(email.value,password.value)
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      //window.location.href = "user.html";
+      alert("Logged in");
+      window.location.href = "user.html";
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+      // ...
+    });
+  });
+
+  //signIN function
+  function signIn(){
+    auth.signInWithEmailAndPassword(email.value,password.value)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      window.location.href = "user.html";
       // ...
     })
     .catch((error) => {
