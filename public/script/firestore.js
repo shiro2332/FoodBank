@@ -8,7 +8,7 @@ var firebaseConfig = {
     measurementId: "G-K2439YYX8Q"
   };
 
-const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 function addMessage() {
