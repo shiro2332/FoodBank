@@ -25,30 +25,35 @@
     alert("SignUp Successfully");
   }
 
-  document.getElementById("loginBtn").addEventListener("submit", (event) => {
-    event.preventDefault();
+  // document.getElementById("loginBtn").addEventListener("submit", (event) => {
+  //   event.preventDefault();
+  //   var email = document.getElementById("registerEmail");
+  //   var password = document.getElementById("registerPassword");
+  //   auth.signInWithEmailAndPassword(email.value,password.value)
+  //   .then((userCredential) => {
+  //     // Signed in
+  //     var user = userCredential.user;
+  //     alert("Logged in");
+  //     window.location.href = "user.html";
+  //     // ...
+  //   })
+  //   .catch((error) => {
+  //     var errorCode = error.code;
+  //     var errorMessage = error.message;
+  //     console.log(error);
+  //     // ...
+  //   });
+  // });
+
+  //signIN function
+  function signIn(){
+    var email = document.getElementById("loginEmail");
+    var password = document.getElementById("loginPassword");
     auth.signInWithEmailAndPassword(email.value,password.value)
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
       alert("Logged in");
-      window.location.href = "user.html";
-      // ...
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(error);
-      // ...
-    });
-  });
-
-  //signIN function
-  function signIn(){
-    auth.signInWithEmailAndPassword(email.value,password.value)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
       window.location.href = "user.html";
       // ...
     })
