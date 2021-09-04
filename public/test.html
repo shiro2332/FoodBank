@@ -1,6 +1,9 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+        <script src="script/authentication.js"></script>
         <link href="test.css" rel="stylesheet">
     </head>
     
@@ -239,6 +242,7 @@
             <div class="col-xl-6 m-auto text-center">
                 <div class="copyright">
                 <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+                <button onclick="signOut()">signOut</button>
                 </div>
             </div>
             </div>
