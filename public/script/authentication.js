@@ -65,16 +65,13 @@ function getCurrentUser() {
   }
 }
 
-/*
+
 //active user to homepage
-firebase.auth().onAuthStateChanged((user)=>{
-  if(user){
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
     var email = user.email;
     window.location.href = "user.html";
-    //alert("Active user "+email);
-
-  }else{
+  } else {
     //alert("No Active user Found")
   }
-})
-*/
+});
