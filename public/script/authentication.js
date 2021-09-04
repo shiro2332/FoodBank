@@ -14,8 +14,6 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 
-getCurrentUser();
-
 //signup function
 function signUp() {
   var email = document.getElementById("registerEmail");
@@ -64,15 +62,3 @@ function getCurrentUser() {
     console.log('No User');
   }
 }
-
-
-//active user to homepage
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    var email = user.email;
-    console.log(user);
-    // window.location.href = "user.html";
-  } else {
-    //alert("No Active user Found")
-  }
-});
