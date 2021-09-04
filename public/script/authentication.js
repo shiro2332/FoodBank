@@ -30,9 +30,9 @@
     var email = document.getElementById("loginEmail");
     var password  = document.getElementById("loginPassword");
     const promise = auth.signInWithEmailAndPassword(email.value,password.value);
+    console.log(promise);
     promise.catch(e=>alert(e.message));
     window.location.href = "user.html";
-    
   }
 
 
