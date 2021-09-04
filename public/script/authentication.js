@@ -70,7 +70,8 @@ function getCurrentUser() {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     var email = user.email;
-    window.location.href = "user.html";
+    console.log(user);
+    // window.location.href = "user.html";
   } else {
     //alert("No Active user Found")
   }
