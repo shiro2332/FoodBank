@@ -27,6 +27,7 @@
 
   //signIN function
   function  signIn(){
+    preventDefault();
     auth.signInWithEmailAndPassword(email.value,password.value)
     .then((userCredential) => {
       // Signed in
