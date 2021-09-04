@@ -51,7 +51,7 @@ function signOut() {
   const promise = auth.signOut();
   promise.catch(e => alert(e.message));
   alert("SignOut Successfully from System");
-  window.location.href = "index.html";
+  location.href = "login.html";
 }
 
 function getCurrentUser() {
@@ -60,6 +60,8 @@ function getCurrentUser() {
       console.log(user);
     } else {
       console.log('No User');
+      // alert("Please login");
+      // location.href = "index.html";
     }
   });
 }

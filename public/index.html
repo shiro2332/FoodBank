@@ -5,6 +5,8 @@
         <link rel="icon" href="logo.ico" type="image/ico">
         <title>Home | FreeFood4U</title>
         <link rel="stylesheet" href="style/indexStyle.css">
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
         <script src="https://kit.fontawesome.com/166358a2b4.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -139,11 +141,11 @@
                 </div>
 
                 <div class="formbox">
-                    <form>
+                    <form onsubmit="return false">
                         <h3>Message Us</h3>
-                        <input type="text" name="" placeholder="Full Name">
-                        <input type="email" name="" placeholder="Email">
-                        <textarea placeholder="Your Message"></textarea>
+                        <input type="text"  id ="messageName" placeholder="Full Name">
+                        <input type="email" id ="messageEmail" placeholder="Email">
+                        <textarea id ="messageContent" placeholder="Your Message"></textarea>
                         <input type="submit" value="Send">
                     </form>
                 </div>
