@@ -20,11 +20,11 @@
             <a href="#" class="logo"> FF4U </a>
             <div class="toggle" onclick="toggleMenu();"></div>
                 <ul class="menu">
-                    <li> <a href="#home" onclick="toggleMenu();">Overview</a></li>
-                    <li> <a href="#about" onclick="toggleMenu();">Profile</a></li>
-                    <li> <a href="#services" onclick="toggleMenu();">Notification</a></li>
-                    <li> <a href="#testimonial" onclick="toggleMenu();">Location</a></li>
-                    <li> <a href="#contact" onclick="toggleMenu();">Sign Out</a></li>
+                    <li> <a href="#" onclick="toggleMenu();">Overview</a></li>
+                    <li> <a href="#" onclick="toggleMenu();">Profile</a></li>
+                    <li> <a href="#" onclick="toggleMenu();">Notification</a></li>
+                    <li> <a href="#" onclick="toggleMenu();">Location</a></li>
+                    <li> <a onclick="signOut();">Sign Out</a></li>
                 </ul>
         </header>
 
@@ -32,6 +32,7 @@
             <section class="menu" id="menu">
                 <div class="heading">
                     <h2>Welcome back!, <span id="name"></span></h2>
+                    <!--prob-->
                     <script>
                         let username = userCredential.email;
                         document.getElementById("name").innerHTML = username;
