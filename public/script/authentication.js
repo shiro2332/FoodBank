@@ -34,7 +34,7 @@ function signIn() {
       // Signed in
       var user = userCredential.user;
       alert("Logged in");
-      window.location.href = "user.html";
+      window.location.href = "userMenu.html";
       // ...
     })
     .catch((error) => {
