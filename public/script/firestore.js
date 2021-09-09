@@ -30,6 +30,11 @@ function addApplication() {
     });
 }
 
+async function getFoodBanks() {
+    const snapshot = await db.collection("FoodBank").get();
+    return snapshot.docs;
+}
+
 async function searchFoodBanks(district, state) {
     var snapshot;
     if ((district == 'null' || district == '') && (state == 'null' || state == '')) {
