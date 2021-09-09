@@ -2,16 +2,14 @@ const auth = firebase.auth();
 
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();  
-      function loginWithGoogle(event){ 
-          firebase.auth().signInWithPopup(provider).then(function(result) {
-              var user = result.user;
-              console.log(user);
-          }).catch(function(error) {
-              console.log(error);
-              console.log(error.message)
-          });
-      }
-    }
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        var user = result.user;
+        console.log(user);
+    }).catch(function(error) {
+        console.log(error);
+        console.log(error.message)
+    });
+}
 
 //signup function
 function signUp() {
