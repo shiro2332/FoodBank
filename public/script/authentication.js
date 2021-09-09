@@ -8,7 +8,16 @@ function loginWithGoogle() {
   .catch(error => {
     console.error(error);
   })
+}
 
+function loginWithFacebook() {
+  var provider = new firebase.auth.FacebookAuthProvider();
+  auth.signInWithRedirect(provider).then(() =>{
+    window.location.assign('userMenu.html');
+  })
+  .catch(error => {
+    console.error(error);
+  })
 }
 
 //signup function
