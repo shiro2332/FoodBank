@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+img{
+    width: 100px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #8800be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 1200px;
+    margin: auto;
+}
+
+header{
+    text-align: center;
+    padding: 2rem;
+}
+
+header h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.card{
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-title{
+    color: #8800be;
+    font-weight: 500;
+}
+
+.card-desc,
+.card-info{
+    color: #555;
+}
+
+.card-container.list{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.card{
+    grid-template-columns: 100px 1fr 360px;
+    grid-template-rows: auto auto auto;
+    grid-gap: 1rem;
+}
+
+.top-menu{
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    justify-self: end;
+    display: flex;
+    justify-content: end;
+}
+
+.card-content{
+    display: flex;
+}
+
+.card-mainImage{
+    width: 10%;
+}
+
+.card-text{
+    width: 60%;
+}
+
+.card-title{
+    padding-bottom: 10px;
+}
+
+.card-info{
+    padding-top: 30px;
+    width: 30%;
+}
+
+.detail{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile-img{
+    padding-top: 20px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
