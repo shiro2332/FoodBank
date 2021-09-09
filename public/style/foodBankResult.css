@@ -18,6 +18,10 @@ body{
     justify-content: center;
 }
 
+.back{
+    margin-bottom: 2px;
+}
+
 .container{
     width: 1200px;
     margin: auto;
