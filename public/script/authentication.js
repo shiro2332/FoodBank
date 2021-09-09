@@ -2,6 +2,7 @@ const auth = firebase.auth();
 
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();  
+  console.log("pressed");
     firebase.auth().signInWithPopup(provider).then(function(result) {
         var user = result.user;
         console.log(user);
