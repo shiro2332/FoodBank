@@ -20,6 +20,18 @@ function loginWithFacebook() {
   })
 }
 
+function loginAnnonymous() {
+  firebase.auth().signInAnonymously()
+  .then(() => {
+    // Signed in..
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
+}
+
 //signup function
 function signUp() {
   var email = document.getElementById("registerEmail");
