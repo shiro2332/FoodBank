@@ -1,6 +1,6 @@
 const auth = firebase.auth();
 
-function signUp() {
+function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();  
       function loginWithGoogle(event){ 
           firebase.auth().signInWithPopup(provider).then(function(result) {
