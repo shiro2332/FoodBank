@@ -35,19 +35,40 @@ async function getFoodBanks() {
     return snapshot.docs;
 }
 
-async function searchFoodBanks(district, state) {
+function getStates(docs) {
+    var list = [];
+    docs.forEach(e => {
+        if (!list.includes(e.data().state)){
+            list.push(e.data().state);
+        }
+    });
+    return list;
+}
+
+function getDistricts(docs, state) {
+    var list = [];
+    docs.forEach(e => {
+        if (!list.includes(e.data().district)) {
+            if (e.data().state == state) {
+                list.push(e.data().district);
+            }
+        }
+    });
+    return list;
+}
+
+async function searchFoodBanks(state, district) {
     var snapshot;
     if ((district == 'null' || district == '') && (state == 'null' || state == '')) {
-        console.log(1);
         snapshot = await db.collection("FoodBank").get();
         return snapshot.docs;
     } else if (district == '' || district == 'null') {console.log(2);
         snapshot = await db.collection("FoodBank").where('state', '==', state).get();
         return snapshot.docs;
-    } else if (state == '' || state == 'null') {console.log(3);
+    } else if (state == '' || state == 'null') {
         snapshot = await db.collection("FoodBank").where('district', '==', district).get();
         return snapshot.docs;
-    } else {console.log(4);
+    } else {
         snapshot = await db.collection("FoodBank")
         .where('district', '==', district)
         .where('state', '==', state)
@@ -55,6 +76,8 @@ async function searchFoodBanks(district, state) {
         return snapshot.docs;
     }
 }
+
+
 
  /*
                                佛祖大仙

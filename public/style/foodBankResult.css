@@ -186,3 +186,18 @@ header h1 {
 .show {
     display: block;
 }
+
+.reset-btn{
+    background-color: #3498DB;
+    padding: 16px;
+    margin-right: 100px;
+    margin-left: 100px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
