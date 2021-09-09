@@ -3,7 +3,8 @@ const auth = firebase.auth();
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider).then(() =>{
-    window.location.assign('userMenu.html');
+    alert("Logged in");
+      window.location.href = "userMenu.html";
   })
   .catch(error => {
     console.error(error);
@@ -13,7 +14,8 @@ function loginWithGoogle() {
 function loginWithFacebook() {
   var provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithRedirect(provider).then(() =>{
-    window.location.assign('userMenu.html');
+    alert("Logged in");
+      window.location.href = "userMenu.html";
   })
   .catch(error => {
     console.error(error);
@@ -24,6 +26,8 @@ function loginAnnonymous() {
   firebase.auth().signInAnonymously()
   .then(() => {
     // Signed in..
+    alert("Logged in");
+    window.location.href = "userMenu.html";
   })
   .catch((error) => {
     var errorCode = error.code;
