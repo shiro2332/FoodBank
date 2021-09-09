@@ -14,11 +14,12 @@ body{
     height: 100%;
     background-color: #8800be;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
 .back{
+    float: left;
     margin-bottom: 2px;
 }
 
@@ -103,7 +104,11 @@ header h1{
 
 .detail{
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.detail i{
+    margin-right: 5px;
 }
 
 .profile-img{

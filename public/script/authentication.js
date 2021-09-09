@@ -40,14 +40,15 @@ function signOut() {
   location.href = "login.html";
 }
 
-function getCurrentUser() {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log(user);
-    } else {
-      console.log('No User');
-      // alert("Please login");
-      // location.href = "index.html";
-    }
-  });
-}
+let currentUser = null;
+
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user != null) {
+    console.log(user);
+  } else {
+    console.log('No User');
+    // alert("Please login");
+    // location.href = "index.html";
+  }
+});

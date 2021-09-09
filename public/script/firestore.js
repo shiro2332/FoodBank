@@ -15,6 +15,42 @@ function addMessage() {
     });
 }
 
+function addApplication() {
+    db.collection("Users").doc(document.getElementById("uid").value).collection("HelpApplication").add({
+        firstName: document.getElementById("first_name").value,
+        lastName: document.getElementById("last_name").value,
+        age: document.getElementById("age").value,
+        phone: document.getElementById("phone").value,
+    })
+    .then(() => {
+        alert("Application sent!")
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
+async function searchFoodBanks(district, state) {
+    var snapshot;
+    if ((district == 'null' || district == '') && (state == 'null' || state == '')) {
+        console.log(1);
+        snapshot = await db.collection("FoodBank").get();
+        return snapshot.docs;
+    } else if (district == '' || district == 'null') {console.log(2);
+        snapshot = await db.collection("FoodBank").where('state', '==', state).get();
+        return snapshot.docs;
+    } else if (state == '' || state == 'null') {console.log(3);
+        snapshot = await db.collection("FoodBank").where('district', '==', district).get();
+        return snapshot.docs;
+    } else {console.log(4);
+        snapshot = await db.collection("FoodBank")
+        .where('district', '==', district)
+        .where('state', '==', state)
+        .get();
+        return snapshot.docs;
+    }
+}
+
  /*
                                佛祖大仙
                                _ooOoo_

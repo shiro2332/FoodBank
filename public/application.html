@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <link rel="icon" href="logo.ico" type="image/ico">
+    <script src="script/firebase.js"></script>
+    <script src="script/authentication.js"></script>
+    <script src="script/firestore.js"></script>
+  <title>Form validation example</title>
+  <style>
+    input{display:block; margin-bottom:10px;}
+  </style>
+   <script>
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            document.getElementById("uid").value = user.uid;
+        } else {
+          // TODO: tell user to login
+            alert("Please login");
+            location.href="login.html";
+        }
+    });
+</script>
+</head>
+
+<body>
+  <h1>Form Validation Example</h1>
+  <h2>Please enter your name</h2>
+
+  <form onsubmit="return false">
+    <input id="uid" type="hidden" />
+
+    <label for="first_name">phone:</label>
+    <input id="phone" type="text" />
+
+    <label for="first_name">age:</label>
+    <input id="age" type="text" />
+
+    <label for="first_name">First name:</label>
+    <input id="first_name" type="text" />
+    
+    <label for="last_name">Last name:</label>
+    <input id="last_name" type="text" />
+    
+    <input type="submit" value="Submit" onclick="addApplication()"/>
+  </form>
+</body>
+</html>
