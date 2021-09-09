@@ -14,7 +14,7 @@
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 var email = user.email;
-                window.location.href = "user.html";
+                window.location.href = "userMenu.html";
             } else {
                 //alert("No Active user Found")
             }
