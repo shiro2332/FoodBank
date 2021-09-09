@@ -1,15 +1,20 @@
 const auth = firebase.auth();
 
 function loginWithGoogle() {
-  var provider = new firebase.auth.GoogleAuthProvider();  
-  console.log("pressed");
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        var user = result.user;
-        console.log(user);
-    }).catch(function(error) {
-        console.log(error);
-        console.log(error.message)
-    });
+  var credential = firebase.auth.GoogleAuthProvider.credential(
+    googleUser.getAuthResponse().id_token);
+
+    // Sign in with credential from the Google user.
+    firebase.auth().signInWithCredential(credential).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+    }
+  )
 }
 
 //signup function
