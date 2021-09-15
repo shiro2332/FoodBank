@@ -30,6 +30,26 @@ function addApplication() {
     });
 }
 
+function addProfile() {
+    db.collection("Users").doc(document.getElementById("uid").value).set({
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        age: document.getElementById("age").value,
+        race: document.getElementById("race").value,
+        religion: document.getElementById("religion").value,
+        salary: document.getElementById("salary").value,
+        familyMember: document.getElementById("familyMember").value,
+        homeAddress: document.getElementById("homeAddress").value,
+        allergy: document.getElementById("allergy").value,
+    })
+    .then(() => {
+        alert("Profile updated!")
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
 async function getFoodBanks() {
     const snapshot = await db.collection("FoodBank").get();
     return snapshot.docs;
@@ -196,7 +216,5 @@ MMMMMMMMMMMMMMMk:,''.... .lO0000000000000000000000000000000000000000Ol;odl:,....
 MMMMMMMMMMMMMMWk,.....'. ,O00K0000000000000000000000000000000000000000d,.,,''',,,;;;;;cloolc:;,....;;;,,;;;::cllllooolllcc:;;;,,;;;:cdO00000000Odc;'...',,.  .',,,,,,;,'':oooolccccdKWMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMXc..:cdKKl.cO000000000000000000000000000000000000K00000kc,d0kkkkkxdooooooooolooolloxkkkxdoooooooooooddddoolccllodxOO000K000K00K00000koc:clc,...';,,,,,,,,:kN0kxkOOOc'kWMMMMMMMMMMMMMMMMMM
 NNNNNNNNNNNNNNNNk',dOXNN0,.lOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOkOOkOko,,:x0OOOOOOkxdddoooolllllldkOOOOOxooolooooddxkkOOOOOOOOOOOOOOOOOkOOOOOOOkOOOOOOOOOOxl;'',,,,',,,,,c0XXXXXXXKdoKXNNNNNNNNNNNNNNNNNN
-
-                                                                                    雷神保佑
 */
 
