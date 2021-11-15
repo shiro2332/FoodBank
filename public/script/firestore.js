@@ -16,20 +16,27 @@ function addMessage() {
 }
 
 function addApplication() {
+    console.log(document.getElementById("name").value);
     db.collection("Users").doc(document.getElementById("uid").value).collection("HelpApplication").add({
-        firstName: document.getElementById("first_name").value,
-        lastName: document.getElementById("last_name").value,
-        age: document.getElementById("age").value,
+        name: document.getElementById("name").value,
         phone: document.getElementById("phone").value,
+        age: document.getElementById("age").value,
+        race: document.getElementById("race").value,
+        religion: document.getElementById("religion").value,
+        salary: document.getElementById("salary").value,
+        familyMember: document.getElementById("familyMember").value,
+        homeAddress: document.getElementById("homeAddress").value,
+        allergy: document.getElementById("allergy").value,
     })
     .then(() => {
-        alert("Application sent!")
+        alert("Application send successfully!\nYou will be noted if you are qualified for help.")
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
     });
 }
 
+//Need to add more later
 function addProfile() {
     db.collection("Users").doc(document.getElementById("uid").value).set({
         name: document.getElementById("name").value,
@@ -43,7 +50,7 @@ function addProfile() {
         allergy: document.getElementById("allergy").value,
     })
     .then(() => {
-        alert("Profile updated!")
+        alert("Profile updated")
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
@@ -97,32 +104,7 @@ async function searchFoodBanks(state, district) {
     }
 }
 
-
-
- /*
-                               佛祖大仙
-                               _ooOoo_
-                              o8888888o
-                              88" . "88
-                              (| -_- |)
-                              O\  =  /O
-                           ____/`---'\____
-                         .'  \\|     |//  `.
-                        /  \\|||  :  |||//  \
-                       /  _||||| -:- |||||_  \
-                       |   | \\\  -  /'| |   |
-                       | \_|  `\`---'//  |_/ |
-                       \  .-\__ `-. -'__/-.  /
-                     ___`. .'  /--.--\  `. .'___
-                  ."" '<  `.___\_<|>_/___.' _> \"".
-                 | | :  `- \`. ;`. _/; .'/ /  .' ; |
-                 \  \ `-.   \_\_`. _.'_/_/  -' _.' /
-       ===========`-.`___`-.__\ \___  /__.-'_.'_.-'================
-                               `=--=-'                    
-                            有神明加持的程序
-                            
-__________________________________________________________________________________
-
+/*
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM

@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+
+}
+
+section{
+    padding: 100px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    background: #000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+header .logo{
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+}
+
+header ul li{
+    position: relative;
+    list-style: none;
+}
+
+header ul li a{
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.heading{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.heading h2{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.heading.white{
+    color: #fff;
+}
+
+.page{
+    background: #ffae42;
+}
+
+.menu .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.page .menu .content form input{
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #000;
+    resize: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.page .menu .content form input[type="submit"]{
+    max-width: 100px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    float:left;
+    margin-right: 40px;
+
+}
+
+.page .menu .content form input::placeholder,
+.page .menu .content form textarea::placeholder{
+    color:#999;
+}
+
+.menu .content .menu-box{
+    padding: 40px 20px;
+    background-color: #808080;
+    color: #fff;
+    max-width: 340px;
+    margin: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.menu .content .menu-box img{
+    filter: invert(1);
+    max-width: 80%;
+}
+
+.menu .content .menu-box:hover{
+    background: #2196f3;
+}
+
+.menu .content .menu-box h2{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact{
+    background: #222;
+}
+
+.formbox{
+    min-width: 60%;
+}
+
+.formbox form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formbox form h3, 
+.contactInfo h3{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.formbox form input,
+.formbox form textarea{
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: #333;
+    color: #fff;
+    resize: none;
+}
+
+.formbox form textarea{
+    min-height: 200px;
+}
+
+.formbox form input::placeholder,
+.formbox form textarea::placeholder{
+    color:#999;
+}
+
+.formbox form input[type="submit"]{
+    max-width: 100px;
+    background: #ffae42;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contactInfo{
+    min-width: 40%;
+    float: left;
+}
+
+.contactInfo-box{
+    position: relative;
+}
+
+.contactInfo-box .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.contactInfo-box .box .icon{
+    min-width: 40px;
+    padding-top: 4px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.contactInfo-box .box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+.contactInfo-box .box .text h3{
+    font-weight: 500;
+    color: #ffae42;
+    margin-bottom: 0;
+}
