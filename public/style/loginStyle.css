@@ -92,6 +92,7 @@
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
+    margin-bottom: 40px;
     border-left: 0;
     border-right: 0;
     border-top: 0;
@@ -101,6 +102,7 @@
 }
 
 .submit-button{
+    margin-top: 50px;
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
