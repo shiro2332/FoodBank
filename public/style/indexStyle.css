@@ -133,6 +133,9 @@ header ul li a{
 
 img{
     max-width: 100%;
+}
+
+.w50 img{
     margin-left: 200px;
 }
 
