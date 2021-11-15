@@ -133,6 +133,7 @@ header ul li a{
 
 img{
     max-width: 100%;
+    margin-left: 200px;
 }
 
 .services{
@@ -396,7 +397,6 @@ img{
 
     .w50{
         margin-bottom: 20px;
-        margin-left: 200px;
     }
 
     .services .content .services-box{
