@@ -57,6 +57,10 @@ function addProfile() {
     });
 }
 
+async function deleteFoodBank(id){
+    await db.collection("FoodBank").doc(id).delete();
+}
+
 async function getFoodBanks() {
     const snapshot = await db.collection("FoodBank").get();
     return snapshot.docs;

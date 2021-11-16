@@ -8,6 +8,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
         <script src="https://kit.fontawesome.com/166358a2b4.js" crossorigin="anonymous"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="script/firebase.js"></script>
         <script src="script/firestore.js"></script>
     </head>
@@ -148,7 +149,7 @@
                         <input type="text"  id ="messageName" placeholder="Full Name">
                         <input type="email" id ="messageEmail" placeholder="Email">
                         <textarea id ="messageContent" placeholder="Your Message"></textarea>
-                        <input type="submit" onclick="addMessage()" value="Send">
+                        <input type="submit" onclick="test()" value="Send">
                     </form>
                 </div>
             </div>
@@ -159,6 +160,20 @@
         </div>
 
         <script>
+
+            function test(){
+                Email.send({
+                Host: "smtp.gmail.com",
+                Username : "smtpemail0707@gmail.com",
+                Password : "XDpro0723",
+                To : 'thamkengtheen@gmail.com',
+                From : "smtpemail0707@gmail.com",
+                Subject : "<tst",
+                Body : "<aaa",
+                }).then(
+                    message => alert("mail sent successfully")
+                );
+            }
             function toggleMenu(){
                 var menuToggle = document.querySelector('.toggle');
                 var menu = document.querySelector('.menu');

@@ -15,9 +15,19 @@
     input{display:block; margin-bottom:10px;}
   </style>
    <script>
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
         if (user != null) {
             document.getElementById("uid").value = user.uid;
+            const snapshot = await db.collection("Users").doc(user.uid).get();
+            document.getElementById("name").value = snapshot.data().name;
+            document.getElementById("phone").value = snapshot.data().phone;
+            document.getElementById("age").value = snapshot.data().age;
+            document.getElementById("race").value = snapshot.data().race;
+            document.getElementById("religion").value = snapshot.data().religion;
+            document.getElementById("salary").value = snapshot.data().salary;
+            document.getElementById("familyMember").value = snapshot.data().familyMember;
+            document.getElementById("homeAddress").value = snapshot.data().homeAddress;
+            document.getElementById("allergy").value = snapshot.data().allergy;
         } else {
           // TODO: tell user to login
             alert("Please login");
@@ -44,7 +54,7 @@
   <div class="page">
     <section class="menu" id="menu">
       <div class="heading">
-          <h2>View Account</h2>
+          <h2>Edit Account</h2>
       </div>
       <div class="content">
         <form onsubmit="return false">
@@ -69,7 +79,7 @@
           <input id="allergy" type="text" placeholder="Allergy">
           
           <div class="button-row">
-            <input type="submit" onclick="addApplication()" value="Send">
+            <input type="submit" onclick="addProfile()" value="Update">
             <input type="submit" onclick="window.location.href='userMenu.html'" value="Back">
           </div>
           
