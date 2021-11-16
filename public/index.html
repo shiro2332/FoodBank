@@ -163,15 +163,13 @@
 
             function test(){
                 Email.send({
-                Host: "smtp.gmail.com",
-                Username : "smtpemail0707@gmail.com",
-                Password : "XDpro0723",
-                To : 'thamkengtheen@gmail.com',
-                From : "smtpemail0707@gmail.com",
-                Subject : "<tst",
-                Body : "<aaa",
+                    SecureToken : "3cbf0616-1817-4cb7-8a97-7be33b91306a",
+                    To : 'thamkengtheen@gmail.com',
+                    From : "smtpemail0707@gmail.com",
+                    Subject : "This is the subject",
+                    Body : "And this is the body"
                 }).then(
-                    message => alert("mail sent successfully")
+                message => alert(message)
                 );
             }
             function toggleMenu(){
