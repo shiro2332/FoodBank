@@ -15,16 +15,19 @@
     <script>
         //active user to homepage
         firebase.auth().onAuthStateChanged(async (user) => {
-            // if (user) {
-            //     var email = user.email;
-            //     const snapshot = firebase.firestore().collection("Admin").doc(email).get();
-            //     if(snapshot.data){
-            //         console.log("Is admin");
-            //     }
-            //     //window.location.href = "userMenu.html";
-            // } else {
-            //     //alert("No Active user Found")
-            // }
+            if (user) {
+                var email = user.email;
+                const snapshot = firebase.firestore().collection("Admin").doc(email).get();
+                if(snapshot.data){
+                    console.log("Is admin");
+                    window.location.href = "adminMenu.html";
+                } else {
+                    window.location.href = "userMenu.html";
+                }
+                //window.location.href = "userMenu.html";
+            } else {
+                //alert("No Active user Found")
+            }
         });
     </script>
 </head>
