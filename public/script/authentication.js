@@ -86,12 +86,12 @@ function signOut() {
 let currentUser = null;
 
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user != null) {
-    console.log(user);
-  } else {
-    console.log('No User');
-    // alert("Please login");
-    // location.href = "index.html";
-  }
-});
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user != null) {
+//     console.log(user);
+//   } else {
+//     console.log('No User');
+//     // alert("Please login");
+//     // location.href = "index.html";
+//   }
+// });
