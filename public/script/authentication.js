@@ -52,7 +52,7 @@ function signIn() {
   var email = document.getElementById("loginEmail");
   var password = document.getElementById("loginPassword");
   auth.signInWithEmailAndPassword(email.value, password.value)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // Signed in
       var user = userCredential.user;
       const snapshot = await firebase.firestore().collection("Admin").doc(email.value).get();

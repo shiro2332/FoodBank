@@ -7,18 +7,24 @@
     <link href="style/loginStyle.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     <script src="https://kit.fontawesome.com/166358a2b4.js" crossorigin="anonymous"></script>
     <script src="script/firebase.js"></script>
+    <script src="script/firestore.js"></script>
     <script src="script/authentication.js"></script>
     <script>
         //active user to homepage
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                var email = user.email;
-                window.location.href = "userMenu.html";
-            } else {
-                //alert("No Active user Found")
-            }
+        firebase.auth().onAuthStateChanged(async (user) => {
+            // if (user) {
+            //     var email = user.email;
+            //     const snapshot = firebase.firestore().collection("Admin").doc(email).get();
+            //     if(snapshot.data){
+            //         console.log("Is admin");
+            //     }
+            //     //window.location.href = "userMenu.html";
+            // } else {
+            //     //alert("No Active user Found")
+            // }
         });
     </script>
 </head>

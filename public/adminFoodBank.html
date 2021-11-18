@@ -16,7 +16,7 @@
                 `
                 <div class="card" id="card">
                     <div class="top-menu">
-                        <i onclick = "editFB()" class="far fa-edit"></i>
+                        <i onclick = "editFB('${user.id}')" class="far fa-edit"></i>
                         <i onclick = "deleteFB('${user.id}')" class="far fa-trash-alt"></i>
                     </div>
                     <div class="card-content">
@@ -57,17 +57,26 @@
             ).join("");
         }
         async function deleteFB(id) {
-            await deleteFoodBank(id);
-            alert("Food Bank Successfully Deleted!")
-            location.reload();
+            var userSelection = confirm("Are u sure wan to delete this food bank?");
+            if (userSelection== true){
+                await deleteFoodBank(id);
+                alert("Food Bank Successfully Deleted!")
+                location.reload();
+            }
+            else{
+
+            }
         }
-        async function editFB() {
-            // db.collection("cities").doc("DC").delete().then(() => {
-            //     console.log("Document successfully deleted!");
-            // }).catch((error) => {
-            // console.error("Error removing document: ", error);
-            // });
-            alert("Food Bank Successfully Edited!")
+        async function editFB(id) {
+            var userSelection = confirm("Are u sure wan to edit this food bank?");
+            if (userSelection== true){
+                sessionStorage.setItem('id', id);
+                window.location.href = "editFoodBank.html";
+            }
+            else{
+                
+            }
+            
         }
         window.onload = async function () {
             const container = document.getElementById("cardContainer");
@@ -154,7 +163,7 @@
 <body>
     <div class="back">
         <i class="fas fa-chevron-left" style="padding: 2vh; font-size: 50px; cursor: pointer;"
-            onclick="javascript:location.href='userMenu.html';"></i>
+            onclick="javascript:location.href='adminMenu.html';"></i>
     </div>
     <div class="container">
         <header>
