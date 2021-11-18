@@ -16,7 +16,7 @@
                 `
                 <div class="card" id="card">
                     <div class="top-menu">
-                        <i onclick = "editFB('${user.id}')" class="far fa-edit"></i>
+                        <i onclick = "editFB()" class="far fa-edit"></i>
                         <i onclick = "deleteFB('${user.id}')" class="far fa-trash-alt"></i>
                     </div>
                     <div class="card-content">
@@ -61,10 +61,13 @@
             alert("Food Bank Successfully Deleted!")
             location.reload();
         }
-        async function editFB(id) {
-            sessionStorage.setItem('id', id);
-            window.location.href = "editFoodBank.html";
-            //alert("Food Bank Successfully Edited!")
+        async function editFB() {
+            // db.collection("cities").doc("DC").delete().then(() => {
+            //     console.log("Document successfully deleted!");
+            // }).catch((error) => {
+            // console.error("Error removing document: ", error);
+            // });
+            alert("Food Bank Successfully Edited!")
         }
         window.onload = async function () {
             const container = document.getElementById("cardContainer");
@@ -151,7 +154,7 @@
 <body>
     <div class="back">
         <i class="fas fa-chevron-left" style="padding: 2vh; font-size: 50px; cursor: pointer;"
-            onclick="javascript:location.href='adminMenu.html';"></i>
+            onclick="javascript:location.href='userMenu.html';"></i>
     </div>
     <div class="container">
         <header>

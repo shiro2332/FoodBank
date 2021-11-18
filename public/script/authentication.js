@@ -52,18 +52,11 @@ function signIn() {
   var email = document.getElementById("loginEmail");
   var password = document.getElementById("loginPassword");
   auth.signInWithEmailAndPassword(email.value, password.value)
-    .then(async (userCredential) => {
+    .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      const snapshot = await firebase.firestore().collection("Admin").doc(email.value).get();
-      console.log(snapshot.data());
-      if(snapshot.data()){
-        alert("Logged in");
-        window.location.href = "adminMenu.html";
-      } else {
-        alert("Logged in");
-        window.location.href = "userMenu.html";
-      }
+      alert("Logged in");
+      window.location.href = "userMenu.html";
       // ...
     })
     .catch((error) => {
@@ -73,6 +66,7 @@ function signIn() {
       // ...
     });
 }
+
 
 //signOut
 function signOut() {
@@ -85,12 +79,12 @@ function signOut() {
 let currentUser = null;
 
 
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user != null) {
-//     console.log(user);
-//   } else {
-//     console.log('No User');
-//     // alert("Please login");
-//     // location.href = "index.html";
-//   }
-// });
+firebase.auth().onAuthStateChanged((user) => {
+  if (user != null) {
+    console.log(user);
+  } else {
+    console.log('No User');
+    // alert("Please login");
+    // location.href = "index.html";
+  }
+});
