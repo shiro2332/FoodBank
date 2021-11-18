@@ -55,8 +55,15 @@ function signIn() {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      alert("Logged in");
-      window.location.href = "userMenu.html";
+      const snapshot = await firebase.firestore().collection("Admin").doc(email.value).get();
+      console.log(snapshot.data());
+      if(snapshot.data()){
+        alert("Logged in");
+        window.location.href = "adminMenu.html";
+      } else {
+        alert("Logged in");
+        window.location.href = "userMenu.html";
+      }
       // ...
     })
     .catch((error) => {
