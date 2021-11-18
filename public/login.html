@@ -12,37 +12,9 @@
     <script src="script/authentication.js"></script>
     <script>
         //active user to homepage
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        firebase.auth().onAuthStateChanged(async (user) => {
-            if (user) {
-                var email = user.email;
-                const snapshot = await firebase.firestore().collection("Admin").doc(email).get();
-                console.log(snapshot.data());
-                if(snapshot.data()){
-                    alert("Logged in");
-                    window.location.href = "adminMenu.html";
-                } else {
-                    alert("Logged in");
-                    sessionStorage.setItem('firsttimelogin', true);
-                    window.location.href = "userMenu.html";
-                }
-=======
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 var email = user.email;
->>>>>>> parent of c7b38a44 (s)
-=======
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                var email = user.email;
->>>>>>> parent of c7b38a44 (s)
-=======
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                var email = user.email;
->>>>>>> parent of c7b38a44 (s)
                 window.location.href = "userMenu.html";
             } else {
                 //alert("No Active user Found")
