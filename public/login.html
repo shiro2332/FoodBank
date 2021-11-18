@@ -18,7 +18,7 @@
             if (user) {
                 var email = user.email;
                 const snapshot = firebase.firestore().collection("Admin").doc(email).get();
-                if(snapshot.data){
+                if(snapshot.data()){
                     console.log("Is admin");
                     //window.location.href = "adminMenu.html";
                 } else {
