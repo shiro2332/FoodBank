@@ -13,11 +13,23 @@
     <script src="script/firestore.js"></script>
     <script src="script/authentication.js"></script>
     <script>
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(async (user) => {
             if (user != null) {
                 document.getElementById("name").innerHTML = user.email;
+                var flag = sessionStorage.getItem('firsttimelogin');
+                console.log(flag);
+                if(flag){
+                    const snapshot = await db.collection("Users").doc(user.uid).collection("HelpApplication").get();
+                    if(snapshot.docs.length){
+                        alert("You have application made. Please visit your nearest food bank for collection.")
+                    }
+                    sessionStorage.setItem('firsttimelogin', "");
+                    console.log(sessionStorage.getItem('firsttimelogin'));
+                }
+                
             }
         });
+
     </script>
 </head>
 
@@ -28,7 +40,6 @@
         <ul class="menu">
             <li> <a href="userMenu.html" onclick="toggleMenu();">Overview</a></li>
             <li> <a href="editViewUser.html" onclick="toggleMenu();">Profile</a></li>
-            <li> <a href="#" onclick="toggleMenu();">Notification</a></li>
             <li> <a href="foodBankResult.html" onclick="toggleMenu();">View Foodbank</a></li>
             <li> <a href="application.html" onclick="toggleMenu();">Application</a></li>
             <li> <a onclick="signOut();">Sign Out</a></li>
