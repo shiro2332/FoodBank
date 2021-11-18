@@ -4,7 +4,7 @@ function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider).then(() =>{
     alert("Logged in");
-      window.location.href = "userMenu.html";
+    window.location.href = "userMenu.html";
   })
   .catch(error => {
     console.error(error);
