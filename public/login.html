@@ -17,13 +17,14 @@
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
                 var email = user.email;
-                const snapshot = firebase.firestore().collection("Admin").doc(email).get();
+                const snapshot = await firebase.firestore().collection("Admin").doc(email).get();
+                console.log(snapshot.data)
                 if(snapshot.data()){
                     console.log("Is admin");
-                    //window.location.href = "adminMenu.html";
+                    window.location.href = "adminMenu.html";
                 } else {
                     console.log("not admin");
-                    //window.location.href = "userMenu.html";
+                    window.location.href = "userMenu.html";
                 }
                 //window.location.href = "userMenu.html";
             } else {
