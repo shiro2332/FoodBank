@@ -62,6 +62,7 @@ function signIn() {
         window.location.href = "adminMenu.html";
       } else {
         alert("Logged in");
+        sessionStorage.setItem('firsttimelogin', true);
         window.location.href = "userMenu.html";
       }
       // ...
