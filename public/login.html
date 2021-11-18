@@ -13,6 +13,7 @@
     <script>
         //active user to homepage
 <<<<<<< HEAD
+<<<<<<< HEAD
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
                 var email = user.email;
@@ -26,6 +27,11 @@
                     sessionStorage.setItem('firsttimelogin', true);
                     window.location.href = "userMenu.html";
                 }
+=======
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var email = user.email;
+>>>>>>> parent of c7b38a44 (s)
 =======
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
