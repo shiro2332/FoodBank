@@ -88,6 +88,56 @@ function getDistricts(docs, state) {
     return list;
 }
 
+function addFoodBank() {
+    let record = db.collection("FoodBank").add({
+        dist_time : [document.getElementById("open").value,document.getElementById("close").value],
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        district: document.getElementById("district").value,
+        state: document.getElementById("state").value, 
+        category: document.getElementById("category").value,
+        desc: document.getElementById("desc").value,
+        availability: "True",   
+    })
+    .then(() => {
+        alert("Food bank added successfully!")
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
+function editFoodBank(id) {
+    let record = db.collection("FoodBank").doc(id).update({
+        dist_time : [document.getElementById("open").value,document.getElementById("close").value],
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        district: document.getElementById("district").value,
+        state: document.getElementById("state").value, 
+        category: document.getElementById("category").value,
+        desc: document.getElementById("desc").value,
+        availability: "True",   
+    })
+    .then(() => {
+        alert("Food bank edited successfully!")
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
+async function getUsers() {
+    const snapshot = await db.collection("Users").get();
+    return snapshot.docs;
+}
+
+async function getAdmin() {
+    const snapshot = await db.collection("Admin").get();
+    return snapshot.docs;
+}
+
 async function searchFoodBanks(state, district) {
     var snapshot;
     if ((district == 'null' || district == '') && (state == 'null' || state == '')) {

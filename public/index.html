@@ -163,9 +163,11 @@
 
             function test(){
                 Email.send({
-                    SecureToken : "3cbf0616-1817-4cb7-8a97-7be33b91306a",
+                    Host : "smtp.elasticemail.com",
+                    Username : "smtpemail@elasticemail.com",
+                    Password : "A9A72B3FDF902480116E8E95D0DD0B739143",
                     To : 'thamkengtheen@gmail.com',
-                    From : "smtpemail0707@gmail.com",
+                    From : "smtpemail@elasticemail.com",
                     Subject : "This is the subject",
                     Body : "And this is the body"
                 }).then(

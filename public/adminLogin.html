@@ -4,78 +4,58 @@
 <head>
     <title>Login | FreeFood4U</title>
     <link rel="icon" href="logo.ico" type="image/ico">
-    <link href="style/loginStyle.css" rel="stylesheet">
+    <link href="style/adminLogin.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     <script src="https://kit.fontawesome.com/166358a2b4.js" crossorigin="anonymous"></script>
     <script src="script/firebase.js"></script>
-    <script src="script/firestore.js"></script>
     <script src="script/authentication.js"></script>
+    <script src="script/firestore.js"></script>
     <script>
         //active user to homepage
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     if (user) {
-        //         var email = user.email;
-        //         window.location.href = "userMenu.html";
-        //     } else {
-        //         //alert("No Active user Found")
-        //     }
-        // });
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var email = user.email;
+                window.location.href = "adminMenu.html";
+            } else {
+                //alert("No Active user Found")
+            }
+        });
+        
     </script>
 </head>
 
 <body>
+    
+
     <div class="hero">
         <i class="fas fa-chevron-left" style="padding: 2vh; font-size: 50px; cursor: pointer;" onclick="javascript:location.href='index.html';"></i>
         <div class="logo">
             <img src="images/logo.png">
         </div>
         <div class="form-box">
-            <div class="button-box">
-                <div id="button"></div>
-                <button type="button" class="toggle-button" onclick="login()">Log In</button>
-                <button type="button" class="toggle-button" onclick="register()">Register</button>
-            </div>
-
-            <div class="social-icons">
-                <img src="images/login/fb.png" onclick="loginWithFacebook()">
-                <img src="images/login/gp.png" onclick="loginWithGoogle()">
-                <img src="images/login/tw.png" onclick="loginAnnonymous()">
-            </div>
 
             <form onsubmit="return false" id="login" class="input-group">
                 <input type="text" name="loginUsername" class="input-field" placeholder="Email ID" required
                     id="loginEmail">
                 <input type="password" name="loginPassword" class="input-field" placeholder="Password" required
                     id="loginPassword">
+                <input type="checkbox" name="rememberMeBtn" class="check-box"><span>Remember me</span>
+                
                 <button type="submit" name="submitLogin" class="submit-button" id="loginBtn" onclick="signIn()">Log In</button>
+                
             </form>
 
-            <form onsubmit="return false" id="register" class="input-group">
-                <input type="email" name="registerEmail" class="input-field" placeholder="Email ID" required
-                    id="registerEmail">
-                <input type="password" name="registerPassword" class="input-field" placeholder="Password" required
-                    id="registerPassword">
-                <button type="submit" name="submitRegister" class="submit-button" onclick="signUp()">Register</button>
-            </form>
         </div>
     </div>
 
     <script>
         var x = document.getElementById("login");
-        var y = document.getElementById("register");
         var z = document.getElementById("button");
-
-        function register() {
-            x.style.left = "-450px";
-            y.style.left = "50px";
-            z.style.left = "110px";
-        }
 
         function login() {
             x.style.left = "50px";
-            y.style.left = "450px";
             z.style.left = "0px";
         }
     </script>
