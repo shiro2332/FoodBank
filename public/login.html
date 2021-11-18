@@ -14,14 +14,24 @@
     <script src="script/authentication.js"></script>
     <script>
         //active user to homepage
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     if (user) {
-        //         var email = user.email;
-        //         window.location.href = "userMenu.html";
-        //     } else {
-        //         //alert("No Active user Found")
-        //     }
-        // });
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                var email = user.email;
+                const snapshot = await firebase.firestore().collection("Admin").doc(email).get();
+                console.log(snapshot.data());
+                if(snapshot.data()){
+                    alert("Logged in");
+                    window.location.href = "adminMenu.html";
+                } else {
+                    alert("Logged in");
+                    sessionStorage.setItem('firsttimelogin', true);
+                    window.location.href = "userMenu.html";
+                }
+                window.location.href = "userMenu.html";
+            } else {
+                //alert("No Active user Found")
+            }
+        });
     </script>
 </head>
 
