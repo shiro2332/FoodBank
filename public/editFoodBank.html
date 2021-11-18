@@ -17,6 +17,7 @@
   </style>
    <script>
     firebase.auth().onAuthStateChanged(async (user) => {
+        foodbankid = sessionStorage.getItem('id');
         if (user != null) {
             foodbankid = sessionStorage.getItem('id');
             console.log(foodbankid)

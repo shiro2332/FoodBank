@@ -149,7 +149,7 @@
                         <input type="text"  id ="messageName" placeholder="Full Name">
                         <input type="email" id ="messageEmail" placeholder="Email">
                         <textarea id ="messageContent" placeholder="Your Message"></textarea>
-                        <input type="submit" onclick="addMessage()" value="Send">
+                        <input type="submit" onclick="test()" value="Send">
                     </form>
                 </div>
             </div>
@@ -160,6 +160,20 @@
         </div>
 
         <script>
+
+            function test(){
+                Email.send({
+                    Host : "smtp.elasticemail.com",
+                    Username : "smtpemail@elasticemail.com",
+                    Password : "A9A72B3FDF902480116E8E95D0DD0B739143",
+                    To : 'thamkengtheen@gmail.com',
+                    From : "smtpemail@elasticemail.com",
+                    Subject : "This is the subject",
+                    Body : "And this is the body"
+                }).then(
+                message => alert(message)
+                );
+            }
             function toggleMenu(){
                 var menuToggle = document.querySelector('.toggle');
                 var menu = document.querySelector('.menu');
@@ -169,6 +183,3 @@
         </script>
     </body>
 </html>
-
-
-//
