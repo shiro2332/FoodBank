@@ -58,12 +58,12 @@ function signIn() {
       const snapshot = await firebase.firestore().collection("Admin").doc(email.value).get();
       console.log(snapshot.data());
       if(snapshot.data()){
-        alert("Logged in");
-        window.location.href = "adminMenu.html";
+        alert("admin");
+        //window.location.href = "adminMenu.html";
       } else {
-        alert("Logged in");
+        alert("user");
         sessionStorage.setItem('firsttimelogin', true);
-        window.location.href = "userMenu.html";
+        //window.location.href = "userMenu.html";
       }
       // ...
     })
