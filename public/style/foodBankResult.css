@@ -26,6 +26,7 @@ body {
 .container {
     width: 1200px;
     margin: auto;
+    margin-top: 50px;
 }
 
 header{
@@ -238,7 +239,7 @@ header ul li a{
 
 .reset-btn{
     background-color: #3498DB;
-    padding: 16px;
+    padding: 10px;
     margin-right: 100px;
     margin-left: 100px;
     font-size: 16px;

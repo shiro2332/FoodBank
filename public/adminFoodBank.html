@@ -89,60 +89,62 @@
             }).reverse();
             showResult(container, list);
 
-            const stateDropDown = document.getElementById("stateDropDown");
-            const districtDropDown = document.getElementById("districtDropDown");
-            const stateButton = document.getElementById("stateButton");
-            const districtButton = document.getElementById("districtButton");
-            stateDropDown.innerHTML
-                = getStates(docs).map(e => `<a class="stateSelection">${e}</a>`).join("");
+            // const stateDropDown = document.getElementById("stateDropDown");
+            // const districtDropDown = document.getElementById("districtDropDown");
+            // const stateButton = document.getElementById("stateButton");
+            // const districtButton = document.getElementById("districtButton");
+            // stateDropDown.innerHTML
+            //     = getStates(docs).map(e => `<a class="stateSelection">${e}</a>`).join("");
 
-            // console.log(stateSelections);
+            // // console.log(stateSelections);
 
-            const stateSelections = document.getElementsByClassName("stateSelection");
-            for (var i = 0; i < stateSelections.length; i++) {
-                stateSelections[i].addEventListener("click", async function (stateEvent) {
-                    stateButton.innerHTML = stateEvent.target.innerHTML;
-                    document.getElementById("districtDropDown").innerHTML
-                        = getDistricts(await getFoodBanks(), stateEvent.target.innerHTML).map(e => `<a class="districtSelection">${e}</a>`).join("");
-                    const docs = await searchFoodBanks(stateEvent.target.innerHTML, '');
-                    var list = docs.map(e => e.data()).reverse();
-                    showResult(container, list);
+            // const stateSelections = document.getElementsByClassName("stateSelection");
+            // for (var i = 0; i < stateSelections.length; i++) {
+            //     stateSelections[i].addEventListener("click", async function (stateEvent) {
+            //         stateButton.innerHTML = stateEvent.target.innerHTML;
+            //         document.getElementById("districtDropDown").innerHTML
+            //             = getDistricts(await getFoodBanks(), stateEvent.target.innerHTML).map(e => `<a class="districtSelection">${e}</a>`).join("");
+            //         const docs = await searchFoodBanks(stateEvent.target.innerHTML, '');
+            //         var list = docs.map(e => e.data()).reverse();
+            //         showResult(container, list);
 
-                    const districtSelections = document.getElementsByClassName("districtSelection");
-                    for (var i = 0; i < districtSelections.length; i++) {
-                        districtSelections[i].addEventListener("click", async function (districtEvent) {
-                            districtButton.innerHTML = districtEvent.target.innerHTML;
-                            const docs = await searchFoodBanks(stateEvent.target.innerHTML, districtEvent.target.innerHTML);
-                            var list = docs.map(e => e.data()).reverse();
-                            showResult(container, list);
-                        });
-                    }
-                });
-            }
+            //         const districtSelections = document.getElementsByClassName("districtSelection");
+            //         for (var i = 0; i < districtSelections.length; i++) {
+            //             districtSelections[i].addEventListener("click", async function (districtEvent) {
+            //                 districtButton.innerHTML = districtEvent.target.innerHTML;
+            //                 const docs = await searchFoodBanks(stateEvent.target.innerHTML, districtEvent.target.innerHTML);
+            //                 var list = docs.map(e => e.data()).reverse();
+            //                 showResult(container, list);
+            //             });
+            //         }
+            //     });
+            // }
         }
+
         async function addFB() {
             window.location.href = "addFoodBank.html";
         }
-        async function resetFilter() {
-            const stateButton = document.getElementById("stateButton");
-            const districtButton = document.getElementById("districtButton");
-            const districtDropDown = document.getElementById("districtDropDown");
-            const container = document.getElementById("cardContainer");
-            const docs = await getFoodBanks();
-            var list = docs.map(e => e.data()).reverse();
-            showResult(container, list);
-            stateButton.innerHTML = "State";
-            districtButton.innerHTML = "Area";
-            districtDropDown.innerHTML = "";
-        }
 
-        function stateDropDownFunction() {
-            document.getElementById("stateDropDown").classList.toggle("show");
-        }
+        // async function resetFilter() {
+        //     const stateButton = document.getElementById("stateButton");
+        //     const districtButton = document.getElementById("districtButton");
+        //     const districtDropDown = document.getElementById("districtDropDown");
+        //     const container = document.getElementById("cardContainer");
+        //     const docs = await getFoodBanks();
+        //     var list = docs.map(e => e.data()).reverse();
+        //     showResult(container, list);
+        //     stateButton.innerHTML = "State";
+        //     districtButton.innerHTML = "Area";
+        //     districtDropDown.innerHTML = "";
+        // }
 
-        function districtDropDownFunction() {
-            document.getElementById("districtDropDown").classList.toggle("show");
-        }
+        // function stateDropDownFunction() {
+        //     document.getElementById("stateDropDown").classList.toggle("show");
+        // }
+
+        // function districtDropDownFunction() {
+        //     document.getElementById("districtDropDown").classList.toggle("show");
+        // }
 
         // Close the dropdown menu if the user clicks outside of it
         window.onclick = function (event) {
@@ -179,7 +181,7 @@
             </div>
 
             <div class="search-banner">
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <button onclick="stateDropDownFunction()" class="dropbtn" id="stateButton">State</button>
                     <div id="stateDropDown" class="dropdown-content">
                     </div>
@@ -188,11 +190,11 @@
                 <div class="dropdown">
                     <button onclick="districtDropDownFunction()" class="dropbtn" id="districtButton">Area</button>
                     <div id="districtDropDown" class="dropdown-content"></div>
-                </div>
+                </div> -->
 
-                <button class="reset-btn" onclick="resetFilter()"> Reset Search </button>
+                <!-- <button class="reset-btn" onclick="resetFilter()"> Reset Search </button> -->
 
-                <button class="addFoodBank" onclick="addFB()"> Add Food Bank </button>
+                <button class="reset-btn" onclick="addFB()"> Add Food Bank </button>
             </div>
 
             <div class="card-container" id="cardContainer"></div>

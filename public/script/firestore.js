@@ -86,8 +86,8 @@ function addFoodBank() {
     });
 }
 
-function editFoodBank() {
-    let record = db.collection("FoodBank").update({
+function editFoodBank(id) {
+    db.collection("FoodBank").doc(id).set({
         dist_time : [document.getElementById("open").value,document.getElementById("close").value],
         name: document.getElementById("name").value,
         phone: document.getElementById("phone").value,
@@ -99,7 +99,7 @@ function editFoodBank() {
         availability: "True",   
     })
     .then(() => {
-        alert("Food bank added successfully!")
+        alert("Food bank edited successfully!")
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
