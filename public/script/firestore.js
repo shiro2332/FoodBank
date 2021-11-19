@@ -66,6 +66,26 @@ async function getFoodBanks() {
     return snapshot.docs;
 }
 
+function addFoodBank() {
+    let record = db.collection("FoodBank").add({
+        dist_time : [document.getElementById("open").value,document.getElementById("close").value],
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        district: document.getElementById("district").value,
+        state: document.getElementById("state").value, 
+        category: document.getElementById("category").value,
+        desc: document.getElementById("desc").value,
+        availability: "True",   
+    })
+    .then(() => {
+        alert("Food bank added successfully!")
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
 function editFoodBank() {
     let record = db.collection("FoodBank").update({
         dist_time : [document.getElementById("open").value,document.getElementById("close").value],
