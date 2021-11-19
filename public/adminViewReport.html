@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style/application.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <link rel="icon" href="logo.ico" type="image/ico">
+    <script src="script/firebase.js"></script>
+    <script src="script/authentication.js"></script>
+    <script src="script/firestore.js"></script>
+  <title>View Report | FreeFood4U</title>
+  <style>
+    input{display:block; margin-bottom:10px;}
+  </style>
+   <script>
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            
+        } else {
+          // TODO: tell user to login
+            alert("Please login");
+            location.href="adminLogin.html";
+        }
+    });
+</script>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo"> FF4U </a>
+    <div class="toggle" onclick="toggleMenu();"></div>
+    <ul class="menu">
+        <li> <a href="#" onclick="window.location.href='adminMenu.html'">Overview</a></li>
+            <li> <a href="#" onclick="window.location.href='adminViewUser.html'">Receivers' Profile</a></li>
+            <li> <a href="#" onclick="window.location.href='adminFoodBank.html'">View/Edit Foodbank</a></li>     
+            <li> <a onclick="adminSignOut();">Sign Out</a></li>
+    </ul>
+  </header>
+
+  <script>
+      window.onload = async function(){
+        let johor = 0;
+        let malacca = 0;
+        let perlis = 0;
+        let penang = 0;
+        let perak = 0;
+        let pahang = 0;
+        let sarawak = 0;
+        let selangor = 0;
+        let sabah = 0;
+        let kedah = 0;
+        let kl = 0;
+        let labuan = 0;
+        let putrajaya = 0;
+        let terrenganu = 0;
+        let n9 = 0;
+        let kelantan = 0;
+        
+        let available = 0;
+        let notAvailable = 0;
+    
+        const docs = await getFoodBanks();
+        var list = docs.map(e => e.data()).reverse();
+        for(var c=0; c<list.length;c++){
+            console.log(list[c].availability);
+            if(list[c].availability == true){
+                available = available+1;
+            }
+            else{
+                notAvailable = notAvailable+1;
+            }
+            if(list[c].state.toLowerCase() == 'johor'){
+                johor = johor+1;
+            }
+            else if(list[c].state.toLowerCase() == 'malacca'){
+                malacca = melacca+1;
+            }
+            else if(list[c].state.toLowerCase() == 'perlis'){
+                perlis = perlis+1;
+            }
+            else if(list[c].state.toLowerCase() == 'penang'){
+                penang = penang+1;
+            }
+            else if(list[c].state.toLowerCase() == 'perak'){
+                perak = perak+1;
+            }
+            else if(list[c].state.toLowerCase() == 'pahang'){
+                pahang = pahang+1;
+            }
+            else if(list[c].state.toLowerCase() == 'sarawak'){
+                sarawak = sarawak+1;
+            }
+            else if(list[c].state.toLowerCase() == 'selangor'){
+                selangor = selangor+1;
+            }
+            else if(list[c].state.toLowerCase() == 'sabah'){
+                sabah = sabah+1;
+            }
+            else if(list[c].state.toLowerCase() == 'kedah'){
+                kedah = kedah+1;
+            }
+            else if(list[c].state.toLowerCase() == 'kuala lumpur'){
+                kl = kl+1;
+            }
+            else if(list[c].state.toLowerCase() == 'labuan'){
+                labuan = labuan+1;
+            }
+            else if(list[c].state.toLowerCase() == 'putrajaya'){
+                putrajaya = putrajaya+1;
+            }
+            else if(list[c].state.toLowerCase() == 'negeri sembilan'){
+                n9 = n9+1;
+            }
+            else if(list[c].state.toLowerCase() == 'terrenganu'){
+                terrenganu = terrenganu+1;
+            }
+            else if(list[c].state.toLowerCase() == 'kelantan'){
+                kelantan = kelantan+1;
+            }
+
+        }
+
+        document.getElementById('totalFB').innerHTML = "Total Numbers of Food Bank\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + list.length;
+        document.getElementById('AFB').innerHTML = "Numbers of Available Food Bank\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + available;
+        document.getElementById('NAFB').innerHTML = "Numbers of Not Available Food Bank\xa0: " + notAvailable;
+        document.getElementById('johor').innerHTML = "Numbers of Food Bank in Johor\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + johor;
+        document.getElementById('malacca').innerHTML = "Numbers of Food Bank in Malacca\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + malacca;
+        document.getElementById('perlis').innerHTML = "Numbers of Food Bank in Perlis\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + perlis;
+        document.getElementById('penang').innerHTML = "Numbers of Food Bank in Penang\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + penang;
+        document.getElementById('perak').innerHTML = "Numbers of Food Bank in Perak\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + perak;
+        document.getElementById('pahang').innerHTML = "Numbers of Food Bank in Pahang\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + pahang;
+        document.getElementById('selangor').innerHTML = "Numbers of Food Bank in Selangor\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + selangor;
+        document.getElementById('kedah').innerHTML = "Numbers of Food Bank in Kedah\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + kedah;
+        document.getElementById('n9').innerHTML = "Numbers of Food Bank in Negeri Sembilan : " + n9;
+        document.getElementById('terrenganu').innerHTML = "Numbers of Food Bank in Terrenganu\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + terrenganu;
+        document.getElementById('kelantan').innerHTML = "Numbers of Food Bank in Kelantan\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + kelantan;
+        document.getElementById('sabah').innerHTML = "Numbers of Food Bank in Sabah\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + sabah;
+        document.getElementById('sarawak').innerHTML = "Numbers of Food Bank in Sarawak\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + sarawak;
+        document.getElementById('kl').innerHTML = "Numbers of Food Bank in Kuala Lumpur\xa0\xa0\xa0\xa0\xa0: " + kl;
+        document.getElementById('labuan').innerHTML = "Numbers of Food Bank in Labuan\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + labuan;
+        document.getElementById('putrajaya').innerHTML = "Numbers of Food Bank in Putrajaya\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0: " + putrajaya;
+      }
+  </script>
+  <div class="page">
+    <section class="menu" id="menu">
+      <div class="heading">
+          <h2>Food Bank Report</h2>
+      </div>
+      
+      <div class="content">
+        <form onsubmit="return false">
+          <p id="totalFB"></p>
+
+          <p id="AFB"></p>
+
+          <p id="NAFB"></p>
+
+          <br>
+
+          <p style = "text-decoration: underline;"> Numbers of FoodBank in states : </p> 
+
+          <br>
+
+          <p id="perlis"></p>
+
+          <p id="kedah"></p> 
+
+          <p id="penang"></p>
+
+          <p id="perak"></p>
+
+          <p id="selangor"></p>
+
+          <p id="putrajaya"></p>
+
+          <p id="kl"></p>
+          
+          <p id="n9"></p>
+
+          <p id="malacca"></p>
+
+          <p id="johor"></p>
+
+          <p id="pahang"></p>
+
+          <p id="terrenganu"></p>
+
+          <p id="kelantan"></p>
+
+          <p id="sabah"></p>
+
+          <p id="sarawak"></p>
+
+          <p id="labuan"></p>
+
+          <div class="button-row">
+            <input type="submit" onclick="window.location.href='adminFoodBank.html'" value="Back">
+          </div>
+          
+        </form>
+      </div>
+    </section>
+    
+    <section class="contact" id="contact">
+      <div class="heading white">
+          <h2>Contact Us</h2>
+          <p>Contact us via these platform.</p>
+      </div>
+      <div class="content">
+          <div class="contactInfo">
+              <h3>Contact Info</h3>
+              <div class="contactInfo-box">
+                  <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-map-marker"></i>
+                      </div>
+                      <div class="text">
+                          <h3>Address</h3>
+                          <p>Address, <br>State, <br>Postcode</p>
+                      </div>
+                  </div>
+                  <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-phone"></i>
+                      </div>
+                      <div class="text">
+                          <h3>Phone</h3>
+                          <p>012-3456789</p>
+                      </div>
+                  </div>
+                  <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-envelope-o"></i>
+                      </div>
+                      <div class="text">
+                          <h3>Email</h3>
+                          <p>abc@abc.com</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="formbox">
+              <form onsubmit="return false">
+                  <h3>Message Us</h3>
+                  <input type="text" id="messageName" placeholder="Full Name">
+                  <input type="email" id="messageEmail" placeholder="Email">
+                  <textarea id="messageContent" placeholder="Your Message"></textarea>
+                  <input type="submit" onclick="addMessage()" value="Send">
+              </form>
+          </div>
+      </div>
+  </section>
+</body>
+</html>
