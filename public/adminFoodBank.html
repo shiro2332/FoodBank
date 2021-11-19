@@ -161,7 +161,46 @@
 </head>
 
 <body>
-    <div class="back">
+    <header>
+        <a href="index.html" class="logo"> FF4U </a>
+        <div class="toggle" onclick="toggleMenu();"></div>
+        <ul class="menu">
+            <li> <a href="adminMenu.html" onclick="toggleMenu();">Overview</a></li>
+            <li> <a href="editViewUser.html" onclick="toggleMenu();">Profile</a></li>
+            <li> <a href="#" onclick="toggleMenu();">Notification</a></li>
+            <li> <a href="foodBankResult.html" onclick="toggleMenu();">View Foodbank</a></li>
+            <li> <a href="application.html" onclick="toggleMenu();">Application</a></li>
+            <li> <a onclick="signOut();">Sign Out</a></li>
+        </ul>
+    </header>
+
+    <div class="page">
+        <div class="container">
+            <div class="heading">
+                <h2>FoodBank Result</h2>
+            </div>
+
+            <div class="search-banner">
+                <div class="dropdown">
+                    <button onclick="stateDropDownFunction()" class="dropbtn" id="stateButton">State</button>
+                    <div id="stateDropDown" class="dropdown-content">
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button onclick="districtDropDownFunction()" class="dropbtn" id="districtButton">Area</button>
+                    <div id="districtDropDown" class="dropdown-content"></div>
+                </div>
+
+                <button class="reset-btn" onclick="resetFilter()"> Reset Search </button>
+
+                <button class="addFoodBank" onclick="addFB()"> Add Food Bank </button>
+            </div>
+
+            <div class="card-container" id="cardContainer"></div>
+        </div>
+    </div>
+    <!-- <div class="back">
         <i class="fas fa-chevron-left" style="padding: 2vh; font-size: 50px; cursor: pointer;"
             onclick="javascript:location.href='adminMenu.html';"></i>
     </div>
@@ -189,7 +228,7 @@
         </div>
 
         <div class="card-container" id="cardContainer"></div>
-    </div>
+    </div> -->
 </body>
 
 </html>

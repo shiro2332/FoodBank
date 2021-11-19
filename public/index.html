@@ -67,12 +67,12 @@
                 <div class="services-box">
                     <img src="images/index/foodbox-icon.png">
                     <h2>Foodbank information</h2>
-                    <p>Know what your foodbank is providing!</p>
+                    <p>Know what your foodbank is providing.</p>
                 </div>
                 <div class="services-box">
                     <img src="images/index/notification-icon.png">
                     <h2>Notification</h2>
-                    <p>Get an update whenever any foodbank updates!</p>
+                    <p>Notify you to collect your care packages.</p>
                 </div>
             </div>
         </section>
@@ -149,7 +149,7 @@
                         <input type="text"  id ="messageName" placeholder="Full Name">
                         <input type="email" id ="messageEmail" placeholder="Email">
                         <textarea id ="messageContent" placeholder="Your Message"></textarea>
-                        <input type="submit" onclick="test()" value="Send">
+                        <input type="submit" onclick="addMessage()" value="Send">
                     </form>
                 </div>
             </div>
@@ -160,18 +160,6 @@
         </div>
 
         <script>
-
-            function test(){
-                Email.send({
-                    SecureToken : "3cbf0616-1817-4cb7-8a97-7be33b91306a",
-                    To : 'thamkengtheen@gmail.com',
-                    From : "smtpemail0707@gmail.com",
-                    Subject : "This is the subject",
-                    Body : "And this is the body"
-                }).then(
-                message => alert(message)
-                );
-            }
             function toggleMenu(){
                 var menuToggle = document.querySelector('.toggle');
                 var menu = document.querySelector('.menu');
