@@ -15,15 +15,15 @@
     input{display:block; margin-bottom:10px;}
   </style>
    <script>
-    // firebase.auth().onAuthStateChanged((user) => {
-    //     if (user != null) {
-    //         document.getElementById("uid").value = user.uid;
-    //     } else {
-    //       // TODO: tell user to login
-    //         alert("Please login");
-    //         location.href="login.html";
-    //     }
-    // });
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+
+        } else {
+          // TODO: tell user to login
+            alert("Please login");
+            location.href="login.html";
+        }
+    });
 </script>
 </head>
 
@@ -35,7 +35,7 @@
         <li> <a href="#" onclick="toggleMenu();">Overview</a></li>
             <li> <a href="#" onclick="window.location.href='adminViewUser.html'">Receiver's Profile</a></li>
             <li> <a href="#" onclick="window.location.href='adminFoodBank.html'">View/Edit Foodbank</a></li>      
-            <li> <a onclick="adminSignOut();">Sign Out</a></li>
+            <li> <a onclick="signOut();">Sign Out</a></li>
     </ul>
   </header>
 
