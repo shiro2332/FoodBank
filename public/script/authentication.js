@@ -3,7 +3,7 @@ const auth = firebase.auth();
 function loginWithGoogle() {
   var provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithRedirect(provider).then(() =>{
-    alert("Logged in");
+    //alert("Logged in");
     window.location.href = "userMenu.html";
   })
   .catch(error => {
@@ -14,7 +14,7 @@ function loginWithGoogle() {
 function loginWithFacebook() {
   var provider = new firebase.auth.FacebookAuthProvider();
   auth.signInWithRedirect(provider).then(() =>{
-    alert("Logged in");
+    //alert("Logged in");
       window.location.href = "userMenu.html";
   })
   .catch(error => {
@@ -26,7 +26,7 @@ function loginAnnonymous() {
   firebase.auth().signInAnonymously()
   .then(() => {
     // Signed in..
-    alert("Logged in");
+    //alert("Logged in");
     window.location.href = "userMenu.html";
   })
   .catch((error) => {
@@ -58,10 +58,10 @@ function signIn() {
       const snapshot = await firebase.firestore().collection("Admin").doc(email.value).get();
       console.log(snapshot.data());
       if(snapshot.data()){
-        alert("admin");
+        //alert("admin");
         //window.location.href = "adminMenu.html";
       } else {
-        alert("user");
+        //alert("user");
         sessionStorage.setItem('firsttimelogin', true);
         //window.location.href = "userMenu.html";
       }
