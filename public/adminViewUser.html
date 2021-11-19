@@ -11,7 +11,7 @@
     <script src="script/firebase.js"></script>
     <script src="script/firestore.js"></script>
     <script>
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(async (user) => {
             if (user != null) {
                 document.getElementById("uid").value = user.uid;
             } else {
