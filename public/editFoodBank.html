@@ -17,7 +17,7 @@
   </style>
    <script>
     firebase.auth().onAuthStateChanged(async (user) => {
-        // if (user != null) {
+        if (user != null) {
             foodbankid = sessionStorage.getItem('id');
             document.getElementById("uid").value =foodbankid;
             const snapshot = await db.collection("FoodBank").doc(foodbankid).get();
@@ -31,11 +31,11 @@
             document.getElementById("category").value = snapshot.data().category;
             document.getElementById("desc").value = snapshot.data().desc;
             document.getElementById("availability").value = snapshot.data().availability ? 'Available' : 'Not available';
-        // } else {
-        //   // TODO: tell user to login
-        //     alert("Please login");
-        //     location.href="adminLogin.html";
-        // }
+        } else {
+          // TODO: tell user to login
+            alert("Please login");
+            location.href="login.html";
+        }
     });
 </script>
 </head>

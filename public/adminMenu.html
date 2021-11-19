@@ -16,6 +16,10 @@
         firebase.auth().onAuthStateChanged((user) => {
             if (user != null) {
                 document.getElementById("name").innerHTML = user.email;
+            } else {
+            // TODO: tell user to login
+                alert("Please login");
+                location.href="login.html";
             }
         });
     </script>
