@@ -32,7 +32,7 @@ function addApplication() {
         }
     }
     if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!="" && document.getElementById("phone").value.startsWith("01")
-    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
+    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length && age.charAt(0)!='0'&&countA<=2 &&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
     &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
         console.log(document.getElementById("name").value);
         db.collection("Users").doc(document.getElementById("uid").value).collection("HelpApplication").add({
@@ -75,7 +75,7 @@ function addProfile() {
         }
     }
     if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!="" && document.getElementById("phone").value.startsWith("01")
-    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
+    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&& age.charAt(0)!='0'&&countA<=2 &&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
     &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
         db.collection("Users").doc(document.getElementById("uid").value).set({
             name: document.getElementById("name").value,
