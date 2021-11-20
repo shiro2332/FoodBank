@@ -20,13 +20,14 @@ function addApplication() {
     countP=0;
     countA=0;
     var phone = document.getElementById("phone").value;
+    var age = document.getElementById("age").value;
     for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
         if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
             countP=countP+1;
         }
     }
     for(var i=0;i<document.getElementById("age").value.trim().length;i++){
-        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+        if(age.charAt(i)>='0'&& age.charAt(i) <= '9'){
             countA=countA+1;
         }
     }
@@ -62,13 +63,14 @@ function addProfile() {
     countP=0;
     countA=0;
     var phone = document.getElementById("phone").value;
+    var age = document.getElementById("age").value;
     for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
         if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
             countP=countP+1;
         }
     }
     for(var i=0;i<document.getElementById("age").value.trim().length;i++){
-        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+        if(age.charAt(i)>='0'&& age.charAt(i) <= '9'){
             countA=countA+1;
         }
     }
