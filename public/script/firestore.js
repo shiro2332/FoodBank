@@ -31,7 +31,7 @@ function addApplication() {
             countA=countA+1;
         }
     }
-    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!=""
+    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!="" && document.getElementById("phone").value.startsWith("01")
     &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
     &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
         console.log(document.getElementById("name").value);
@@ -74,7 +74,7 @@ function addProfile() {
             countA=countA+1;
         }
     }
-    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!=""
+    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!="" && document.getElementById("phone").value.startsWith("01")
     &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
     &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
         db.collection("Users").doc(document.getElementById("uid").value).set({
@@ -117,7 +117,7 @@ function addFoodBank() {
             countP=countP+1;
         }
     }
-    if(document.getElementById("open").value.trim() != ""&&document.getElementById("close").value.trim() !=""&&document.getElementById("name").value.trim() !=""&&document.getElementById("phone").value.trim() !=""
+    if(document.getElementById("open").value.trim() != ""&&document.getElementById("close").value.trim() !=""&&document.getElementById("name").value.trim() !=""&&document.getElementById("phone").value.trim() !="" && document.getElementById("phone").value.startsWith("01")
     &&countP==document.getElementById("phone").value.trim().length&&document.getElementById("address").value.trim() !=""&&document.getElementById("district").value.trim() !=""&&document.getElementById("state").value.trim() !=""&&document.getElementById("category").value.trim() !=""
     &&document.getElementById("desc").value.trim() !=""){
         let record = db.collection("FoodBank").add({
@@ -152,7 +152,7 @@ function editFoodBank(id) {
         }
     }
     if(document.getElementById("open").value.trim() != ""&&document.getElementById("close").value.trim() !=""&&document.getElementById("name").value.trim() !=""&&document.getElementById("phone").value.trim() !="" &&(document.getElementById("phone").value.trim().length==10 ||document.getElementById("phone").value.trim().length==11)
-    &&countP==document.getElementById("phone").value.trim().length&&document.getElementById("address").value.trim() !=""&&document.getElementById("district").value.trim() !=""&&document.getElementById("state").value.trim() !=""&&document.getElementById("category").value.trim() !=""
+    &&countP==document.getElementById("phone").value.trim().length&&document.getElementById("address").value.trim() !=""&&document.getElementById("district").value.trim() !=""&&document.getElementById("state").value.trim() !=""&&document.getElementById("category").value.trim() !="" && document.getElementById("phone").value.startsWith("01")
     &&document.getElementById("desc").value.trim() !=""){
         var status;
         if(document.getElementById("availability").value.toLowerCase()=='available'){
