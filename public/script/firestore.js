@@ -1,5 +1,6 @@
 const db = firebase.firestore(app);
-
+var countP=0;
+var countA=0;
 function addMessage() {
     db.collection("ContactMessage").add({
         name: document.getElementById("messageName").value,
@@ -16,45 +17,85 @@ function addMessage() {
 }
 
 function addApplication() {
-    console.log(document.getElementById("name").value);
-    db.collection("Users").doc(document.getElementById("uid").value).collection("HelpApplication").add({
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        age: document.getElementById("age").value,
-        race: document.getElementById("race").value,
-        religion: document.getElementById("religion").value,
-        salary: document.getElementById("salary").value,
-        familyMember: document.getElementById("familyMember").value,
-        homeAddress: document.getElementById("homeAddress").value,
-        allergy: document.getElementById("allergy").value,
-    })
-    .then(() => {
-        alert("Application send successfully!\nYou will be noted if you are qualified for help.")
-    })
-    .catch((error) => {
-        console.error("Error writing document: ", error);
-    });
+    countP=0;
+    countA=0;
+    var phone = document.getElementById("phone").value;
+    for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countP=countP+1;
+        }
+    }
+    for(var i=0;i<document.getElementById("age").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countA=countA+1;
+        }
+    }
+    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!=""
+    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
+    &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
+        console.log(document.getElementById("name").value);
+        db.collection("Users").doc(document.getElementById("uid").value).collection("HelpApplication").add({
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            age: document.getElementById("age").value,
+            race: document.getElementById("race").value,
+            religion: document.getElementById("religion").value,
+            salary: document.getElementById("salary").value,
+            familyMember: document.getElementById("familyMember").value,
+            homeAddress: document.getElementById("homeAddress").value,
+            allergy: document.getElementById("allergy").value,
+        })
+        .then(() => {
+            alert("Application send successfully!\nYou will be noted if you are qualified for help.")
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }
+    else{
+        alert("Please enter the information correctly.")
+    }
 }
 
 //Need to add more later
 function addProfile() {
-    db.collection("Users").doc(document.getElementById("uid").value).set({
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        age: document.getElementById("age").value,
-        race: document.getElementById("race").value,
-        religion: document.getElementById("religion").value,
-        salary: document.getElementById("salary").value,
-        familyMember: document.getElementById("familyMember").value,
-        homeAddress: document.getElementById("homeAddress").value,
-        allergy: document.getElementById("allergy").value,
-    })
-    .then(() => {
-        alert("Profile updated")
-    })
-    .catch((error) => {
-        console.error("Error writing document: ", error);
-    });
+    countP=0;
+    countA=0;
+    var phone = document.getElementById("phone").value;
+    for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countP=countP+1;
+        }
+    }
+    for(var i=0;i<document.getElementById("age").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countA=countA+1;
+        }
+    }
+    if(document.getElementById("name").value.trim() != ""&& document.getElementById("phone").value.trim() != ""&&document.getElementById("age").value.trim()!=""
+    &&countP==document.getElementById("phone").value.trim().length&&countA==document.getElementById("age").value.trim().length&&document.getElementById("race").value.trim()!=""&&document.getElementById("religion").value.trim()!=""&&document.getElementById("salary").value.trim()!=""
+    &&document.getElementById("familyMember").value.trim()!=""&&document.getElementById("homeAddress").value.trim()!=""&&document.getElementById("allergy").value.trim()!=""){
+        db.collection("Users").doc(document.getElementById("uid").value).set({
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            age: document.getElementById("age").value,
+            race: document.getElementById("race").value,
+            religion: document.getElementById("religion").value,
+            salary: document.getElementById("salary").value,
+            familyMember: document.getElementById("familyMember").value,
+            homeAddress: document.getElementById("homeAddress").value,
+            allergy: document.getElementById("allergy").value,
+        })
+        .then(() => {
+            alert("Profile updated")
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }
+    else{
+        alert("Please enter the information correctly.")
+    }
 }
 
 async function deleteFoodBank(id){
@@ -67,43 +108,81 @@ async function getFoodBanks() {
 }
 
 function addFoodBank() {
-    let record = db.collection("FoodBank").add({
-        dist_time : [document.getElementById("open").value,document.getElementById("close").value],
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        district: document.getElementById("district").value,
-        state: document.getElementById("state").value, 
-        category: document.getElementById("category").value,
-        desc: document.getElementById("desc").value,
-        availability: "True",   
-    })
-    .then(() => {
-        alert("Food bank added successfully!")
-    })
-    .catch((error) => {
-        console.error("Error writing document: ", error);
-    });
+    countP=0;
+    var phone = document.getElementById("phone").value;
+    for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countP=countP+1;
+        }
+    }
+    if(document.getElementById("open").value.trim() != ""&&document.getElementById("close").value.trim() !=""&&document.getElementById("name").value.trim() !=""&&document.getElementById("phone").value.trim() !=""
+    &&countP==document.getElementById("phone").value.trim().length&&document.getElementById("address").value.trim() !=""&&document.getElementById("district").value.trim() !=""&&document.getElementById("state").value.trim() !=""&&document.getElementById("category").value.trim() !=""
+    &&document.getElementById("desc").value.trim() !=""){
+        let record = db.collection("FoodBank").add({
+            dist_time : [document.getElementById("open").value,document.getElementById("close").value],
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            district: document.getElementById("district").value,
+            state: document.getElementById("state").value, 
+            category: document.getElementById("category").value,
+            desc: document.getElementById("desc").value,
+            availability: "True",   
+        })
+        .then(() => {
+            alert("Food bank added successfully!")
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }
+    else{
+        alert("Please enter the information correctly.")
+    }
 }
 
 function editFoodBank(id) {
-    db.collection("FoodBank").doc(id).set({
-        dist_time : [document.getElementById("open").value,document.getElementById("close").value],
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        district: document.getElementById("district").value,
-        state: document.getElementById("state").value, 
-        category: document.getElementById("category").value,
-        desc: document.getElementById("desc").value,
-        availability: "True",   
-    })
-    .then(() => {
-        alert("Food bank edited successfully!")
-    })
-    .catch((error) => {
-        console.error("Error writing document: ", error);
-    });
+    countP=0;
+    var phone = document.getElementById("phone").value;
+    for(var i=0;i<document.getElementById("phone").value.trim().length;i++){
+        if(phone.charAt(i)>='0'&& phone.charAt(i) <= '9'){
+            countP=countP+1;
+        }
+    }
+    if(document.getElementById("open").value.trim() != ""&&document.getElementById("close").value.trim() !=""&&document.getElementById("name").value.trim() !=""&&document.getElementById("phone").value.trim() !="" &&(document.getElementById("phone").value.trim().length==10 ||document.getElementById("phone").value.trim().length==11)
+    &&countP==document.getElementById("phone").value.trim().length&&document.getElementById("address").value.trim() !=""&&document.getElementById("district").value.trim() !=""&&document.getElementById("state").value.trim() !=""&&document.getElementById("category").value.trim() !=""
+    &&document.getElementById("desc").value.trim() !=""){
+        var status;
+        if(document.getElementById("availability").value.toLowerCase()=='available'){
+            status = true;
+        }
+        else if(document.getElementById("availability").value.toLowerCase()=='not available'){
+            status = false;
+        }
+        else{
+            alert("Please fill in either 'Available' or 'Not Available' for status.");
+        }
+        db.collection("FoodBank").doc(id).set({
+            dist_time : [document.getElementById("open").value,document.getElementById("close").value],
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            district: document.getElementById("district").value,
+            state: document.getElementById("state").value, 
+            category: document.getElementById("category").value,
+            desc: document.getElementById("desc").value,
+            availability: status,   
+        })
+        .then(() => {
+            alert("Food bank edited successfully!")
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+    }
+    else{
+        alert("Please enter the information correctly")
+    }
 }
 
 async function getUsers() {
